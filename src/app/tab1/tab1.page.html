@@ -7,11 +7,68 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<video controls width="100%" >
+  <source src="https://youtu.be/7OkMZLJHDt4"/>
+</video>
+<div class=app-mag>
+  <div class="app-mag-img">
+    <img src="assets/images/magazine.jpg">
+  
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  </div>
+  
+  <div class="app-mag-info">
+    <div class="app-mag-date">
+     
+      <span>Octobre 27 2019</span>
+    </div>
+    <div class="app-mag-desc">
+  <p>Lorem ipsbkd kldnvnksnc  restf cheihf vous bfihf termobfb metre en ncuisv jui huihv est 
+     
+  </p>
+  <div class= "app-mag-icon">
+  <a href="#" tiltle ="panier">
+    <ion-icon name="cart-outline"></ion-icon> Panier
+  </a>
+  &nbsp;
+<a href="#"><ion-icon name="book-outline"></ion-icon> Consulter</a><br>
+</div>
+<br>
+
+<ion-button class="app-mag-button" color="primary" >Achetez</ion-button>
+
+  </div>
+  </div>
+</div>
+
+<ion-grid fixed>
+   <ion-row>
+     <ion-col size="12">
+       <ion-segment scrollable (ionChange)="onCategoryChange($event)" >
+         <ion-segment-button *ngFor="let category of categories" value={{category}}>
+         <ion-label>{{category}}</ion-label>
+        </ion-segment-button>
+      
+       </ion-segment>
+     </ion-col>
+   </ion-row>
+</ion-grid>
+<div class="container">
+<div class="box">
+  <div class="imgBx">
+    <img src="assets/images/article.jpg">
+    <div class="content">
+      <h3>Couvre-feu: Précision du Ministère de l’Intérieur
+      </h3>
+      <p>Suite au Couvre-feu décrété par le Président de la République, interdisant la circulation
+         des personnes et des véhicules sur tout le territoire de la République, 
+         à partir de 6h00 du soir et jusqu’à 6h00 du matin du lendemain, 
+         le ministère de l’Intérieur a publié un communiqué à ce sujet dont voici le contenu 
+
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+
 </ion-content>

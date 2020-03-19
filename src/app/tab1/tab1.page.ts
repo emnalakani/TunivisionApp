@@ -6,7 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-
+  categories=['Tunivisons','TuniKids','TuniSport','TuniChef','TuniDeco'];
   constructor() {}
+  onCategoryChange(category){
+    console.log(category.detail.value); }
 
 }
