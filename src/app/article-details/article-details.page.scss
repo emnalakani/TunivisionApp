@@ -1,0 +1,72 @@
+:host{
+background-image: url("src/assets/images/école.jpg");
+    --offset-top: 200px;
+    
+    background-repeat: no-repeat;
+    background-size: contain;
+
+}
+ion-toolbar{
+    --background : transparent;
+    --border-width:0 !important; 
+    --border-color: transparent;
+}
+    
+
+ion-content{
+--background: transparent;
+ transform: translate3d(0, 150px, 0);
+ transition:0.5s;
+}   
+.no-transform{
+transform: translate3d(0, 0, 0) !important;
+
+}
+.inf-button{
+    background-color:transparent;
+}
+.article-inf{
+  line-height:15px;
+    color:#898b8f ;
+    font-size: 12px;
+    
+    
+    
+}
+
+.center ion-button {
+    --padding-start: 0px;
+  }
+.article-inf p{
+    line-height:20px;
+}
+ion-buttons{
+    margin-left: auto;
+    margin-right: auto;
+}
+.joli{
+    margin-top: -10px;
+    width: 70px;
+    height: 30px;
+    background-color: black;
+    color: blanchedalmond;
+}
+.content-container{
+    background-color:white;
+    height: 100%;
+  
+    overflow: scroll;
+    padding-bottom: 20px;
+    border-top-left-radius: 20px; 
+    border-top-right-radius: 20px;
+    
+}
+h3{
+    
+    font-weight: 500;  
+   
+}
+
+p{
+line-height:25px;
+}

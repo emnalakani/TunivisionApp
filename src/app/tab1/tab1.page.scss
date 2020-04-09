@@ -5,6 +5,7 @@ a{
   text-decoration: none;
 }
 
+
 .app-mag{
   font-size: 10px;
   padding: 0.5rem;
@@ -73,7 +74,7 @@ ion-label{
 .box{
   position: relative;
   font-size: 10px;
-  padding: 0.5rem;
+  
   height: 100px;
   max-height: 120px;
   min-height: 150px;
@@ -98,7 +99,7 @@ ion-label{
 .imgBx img{
   position: absolute;
   top:0;
-  
+  bottom:0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -112,13 +113,13 @@ ion-label{
 {
   position: absolute;
   bottom:-20px;
-  left: 10%;
-  width: 80%;
-  height:30%;
+  left: 5%;
+  width: 90%;
+  height:70px;
   background: #F9F9F9;
   transition: 0.5s;
   overflow: hidden;
-  padding: 15px;
+  padding: 8px;
   box-sizing: border-box;
   box-shadow: 0 0.5rem 0.7rem rgba(0,0,0,0.2);
 
@@ -129,18 +130,48 @@ ion-label{
   bottom:0;
   left: 0;
 }
+.imgBx{
+  position: relative;
+}
+ .box .imgBx .category {
+  position: absolute;
+  bottom:120px;
+  left: 0;
+  width: 80px;
+  height:20px;
+  background:black;
+  transition: 0.5s;
+  overflow: hidden;
+  
+  box-sizing: border-box;
+  box-shadow: 0 0.5rem 0.7rem rgba(0,0,0,0.2);
+ 
+}
+.category p{
+  text-align: center;
+  line-height:20%;
+  padding-left: 8px;
+  color: white;
+  font-style: bold;
+  font-weight: 700;
+  
+}
 .box .content h3
 {
-  margin:-2px;
-  padding: 0;
-  text-align: left;
-  font-size: 12px;
+  margin:-4px;
+  padding: 10px;
+  
+  font-size: 13px;
   font-style: bold;
+  font-weight: 700;
   color: #3B4856;
+  text-align: center;
+ 
+  
 }
 
 .box .content p{
-  margin: 10px 0 0 ;
+  margin: 12px 0 0 ;
   padding: 0;
   opacity: 0;
   line-height: 1.2em;
@@ -149,8 +180,26 @@ ion-label{
   color: #3B4856;
 
 }
+.box:hover .content h3{
+  text-align: initial;
+  line-height: initial;
+  padding:10px;
+}
+
 .box:hover .content p{
   opacity: 1;
   transition-delay: 0.5s;
+  
 }
-
+.ion-margin-vertical{
+  margin: 16px 0;
+}
+.ion-justify-content-around{
+  justify-content: space-around;
+}
+.ion-align-items-center	{
+  align-items : center;
+}
+.lire_plus{
+ font-style: bold;
+  }
