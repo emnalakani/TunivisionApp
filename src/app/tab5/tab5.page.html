@@ -1,9 +1,72 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>tab5</ion-title>
-  </ion-toolbar>
+
+<!--Ticket page
+----------------
+-->
+
+
+  <!--Slidetoolbar-->
+  <ion-header>
+    <ion-toolbar>
+<ion-segment mod="md" [(ngModel)]="segment" (ionChange)="segmentChanged($event)">
+  <ion-segment-button value="0">
+    Art&Théatre
+  </ion-segment-button>
+  <ion-segment-button value="1">
+    Festivale
+  </ion-segment-button>
+  <ion-segment-button value="2">
+    Musique 
+  </ion-segment-button>
+  <ion-segment-button value="3">
+    Tounes Bet
+  </ion-segment-button>
+</ion-segment>  
+</ion-toolbar>
 </ion-header>
 
-<ion-content>
+
+<!--Contenue de la page-->
+<ion-content padding>  
+  <ion-slides class="souslid" pager="false" [options]="sliderOptions">    
+    <ion-slide > 
+      
+    <div class="imgSlide1"></div>
+    </ion-slide>
+    <ion-slide > 
+      <div class="imgSlide2"></div>
+
+      </ion-slide >
+      <ion-slide> 
+      
+        <div class="imgSlide3"></div>
+
+        </ion-slide>
+        <ion-slide > 
+      
+          <div class="imgSlide4"></div>
+
+          </ion-slide>
+          <ion-slide> 
+      
+            <div class="imgSlide5"></div>
+
+            </ion-slide>
+   </ion-slides>
+
+<ion-slides #slides pager="false" [options]="sliderOptions" (ionSlidesChange)="slideShanged(slides)"(ionSlideDidChange)="slideShanged(slides)"(ionSlidesDidLoad)="slideShanged(slides)">
+
+ <div class="container">
+    <div class="ul"> 
+ <ion-slide class="test">
+ 
+
+ 
+   </ion-slide>  </div>
+  </div>
+  <ion-slide><ion-content>wbdiuhvuih ibuihvcwbv ci</ion-content></ion-slide>
+  <ion-slide><ion-content>3</ion-content></ion-slide>
+  <ion-slide>4</ion-slide>
+
+</ion-slides>
 
 </ion-content>
