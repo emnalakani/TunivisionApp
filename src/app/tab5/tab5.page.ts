@@ -10,7 +10,7 @@ export class Tab5Page implements OnInit {
   sliderConfig = {
   spaceBetween: 2,
   
-  slidesPerView: 1.8
+  slidesPerView: 3
 
 }
   selectedSlide:any;

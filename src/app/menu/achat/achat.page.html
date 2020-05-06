@@ -1,0 +1,65 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary" >
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>      
+       Mes magazine
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/panier']">
+        <ion-icon name="cart-outline"></ion-icon>      
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-item lines="none"><div class="date">
+    <ion-label> <ion-button fill="clear" ><ion-icon name="calendar-outline" slot="start"></ion-icon>&nbsp;jj/mm/aaaa </ion-button></ion-label>
+    <ion-datetime displayFormat="D MMM YYYY " min="1997" max="2010" ></ion-datetime>
+    </div></ion-item>
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <img src="assets/images/magazine.jpg" height="180px">
+        <ion-card-header>
+          <ion-card-subtitle>07 avril 2020</ion-card-subtitle>
+          <ion-button size="small">Lire</ion-button>
+        </ion-card-header>
+      </ion-card>
+    </ion-col>
+    <ion-col>
+      <ion-card>
+        <img src="assets/images/magazine.jpg" height="180px">
+        <ion-card-header>
+          <ion-card-subtitle>07 avril 2020</ion-card-subtitle>
+          <ion-button size="small">Lire</ion-button>
+        </ion-card-header>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <img src="assets/images/magazine.jpg" height="180px">
+        <ion-card-header>
+          <ion-card-subtitle>07 avril 2020</ion-card-subtitle>
+          <ion-button size="small">Lire</ion-button>
+        </ion-card-header>
+      </ion-card>
+    </ion-col>
+    <ion-col>
+      <ion-card>
+        <img src="assets/images/magazine.jpg" height="180px">
+        <ion-card-header>
+          <ion-card-subtitle>07 avril 2020</ion-card-subtitle>
+          <ion-button size="small">Lire</ion-button>
+        </ion-card-header>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

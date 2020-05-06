@@ -1,8 +1,26 @@
-ion-content ion-toolbar {
-  --background: translucent;
+
+.logo{
+  margin-left:-20;
+  padding:2px;
 }
+ion-toolbar{
+  --min-height:20px;
+  --border-width:0 !important; 
+  --border-color: transparent;
+}
+
 ion-content{
-  --padding-top	: 55px;
+  --padding-top	:10px;
+}
+ion-tab-bar{
+  --background:#fdfdfd;
+  --color:#8a8989; 
+  --border:0px;
+  height:50px;
+}
+
+ion-label {
+  font-size: 11px;
 }
 a{
   text-decoration: none;

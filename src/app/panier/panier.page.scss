@@ -1,0 +1,108 @@
+ion-toolbar{
+    --min-height:20px;
+    --border-width:0 !important; 
+    --border-color: transparent;
+  }
+ion-content{
+
+    --background: #f5f6f9
+
+    ;
+}
+
+a{
+    text-decoration: none;
+    line-height: 70px; 
+    font-size: 12px;
+    text-transform: capitalize;
+    
+
+  }
+  
+  
+  .app-mag{
+    font-size: 10px;
+    padding: 0.5rem;
+    height: 100px;
+    max-height: 120px;
+    min-height: 100px;
+    min-width: 17.7rem;
+    max-width: 98rem;
+    margin: 0.5rem;
+    background-color:#ffffff ;
+    box-shadow: 0 0.5rem 0.7rem rgba(0,0,0,0.05);
+    display: flex;
+  
+  }
+  .app-mag-img  {
+    position: relative;
+    min-width: 4rem;
+    max-width: 4rem;
+    box-shadow:0 0.7rem 1rem rgba(0,0,0,0.07) ;
+    object-fit: cover;
+    display: block;
+  }
+  .new-icon{
+    height: 30px;
+    width: 30px ;
+    position:absolute;
+    top:0.8rem;
+    left:30.8px;
+    z-index:1;
+  }
+  .app-mag-date{
+    display: block; 
+    color: #3F4756;
+    font-size: 12px;
+    font-weight: 600;
+    margin: .5rem 0;
+    margin-top : -0.08rem; line-height: 20px; 
+  }
+  .app-mag-info{
+    margin-left: 0.6rem;
+    padding-bottom: 30rem;
+   
+    
+  }
+  .app-mag-desc{
+    margin-top : -0.3rem;
+    font-size: 9px;
+    color: #3F4756;
+  }
+  .app-mag-icon{
+   margin-top: -0.4rem; 
+  }
+  .app-mag-button{
+    display: inline-block;
+    width: 4rem;
+    height: 20px;
+    font-size: 8px;
+    
+    
+  }
+  ion-icon {
+    font-size: 12px;
+  }
+  ion-item{
+    --background: #f5f6f9
+
+    ;
+  }
+  footer {position: absolute; bottom: 0; left: 0; text-transform: capitalize;right: 0;
+  
+  }
+footer p{
+  font-size: 16px;
+}
+.prix{  position:absolute;
+    right:30px;}
+.full-width{
+  margin-top: 40px;
+width:90%;
+position:absolute;  
+display: block;
+margin-left: auto;
+margin-right: auto;
+padding-left: 10px;
+padding-right: 10px;
+}

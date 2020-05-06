@@ -1,0 +1,72 @@
+.logo{
+    margin-left:-20;
+    padding:2px;
+  }
+  ion-toolbar{
+    --min-height:20px;
+    --border-width:0 !important; 
+    --border-color: transparent;
+  }
+  ion-content ion-toolbar {
+    --background: translucent;
+  }
+.content{
+    background-image: url("/assets/images/magazine.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:150px ;
+    width: 100%;
+  
+    position: relative;
+  }
+
+.img {
+opacity: 1;
+position: absolute  ;
+z-index: 2;
+margin: 20px;
+
+box-shadow:  rgba(0,0,0,0.26 );
+
+  }
+.img ion-button{
+    margin-left: 120px;
+        font-size: 12px;
+    text-align: left;
+}
+h3{
+    margin-top: -125px;
+    margin-left:120px;
+    font-size: 16px;
+    text-transform: capitalize;
+
+}
+
+.overlay{
+    position:relative;
+    background-color: white;
+    
+
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    opacity: 0.9;
+}
+.but {
+    width:80%;
+   margin: 40px;
+}
+.but2 {
+    width:80%;
+   margin: 40px;
+   margin-top: -20px;
+}
+.abonnement{
+    margin: 40px;
+    font-size: 16px;
+    text-transform: capitalize;
+}
+.abonnement ion-button{
+    margin: 8px;
+    
+}

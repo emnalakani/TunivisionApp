@@ -1,9 +1,50 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>tab4</ion-title>
-  </ion-toolbar>
+ <ion-segment mod="md" [(ngModel)]="segment" (ionChange)="segmentChanged($event)">
+  <ion-segment-button value="0">
+  
+  </ion-segment-button>
+  <ion-segment-button value="1">
+    
+  </ion-segment-button>
+  <ion-segment-button value="2">
+
+  </ion-segment-button>
+  <ion-segment-button value="3">
+  
+  </ion-segment-button>
+</ion-segment> 
 </ion-header>
+<body>
+<ion-content padding>
 
-<ion-content>
+<ion-slides #slides pager="false" [options]="sliderOptions" (ionSlidesChange)="slideShanged(slides)"(ionSlideDidChange)="slideShanged(slides)"(ionSlidesDidLoad)="slideShanged(slides)">
 
+
+  <ion-slide>
+    <div class="slide">
+   
+      <img src="assets/images/story.png">
+</div>
+  </ion-slide>
+
+  <ion-slide>
+    <p>bfjfdivb</p>
+    <style>
+      ion-slide{
+        --background: url("assets/images/article.png");
+        background-repeat: no-repeat;
+      }
+    </style>
+  </ion-slide>
+
+  <ion-slide>
+
+  </ion-slide>
+
+  <ion-slide>
+
+  </ion-slide>
+
+</ion-slides>  
 </ion-content>
+</body>

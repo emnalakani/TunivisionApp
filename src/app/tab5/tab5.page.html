@@ -1,12 +1,20 @@
 
-<!--Ticket page
-----------------
--->
 
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary" >
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>      
+      <img src="assets/images/tuni.png" class="logo" style="float:left; width: 110px; height:37"> 
+      
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 
   <!--Slidetoolbar-->
-  <ion-header>
-    <ion-toolbar>
+  
+   
 <ion-segment mod="md" [(ngModel)]="segment" (ionChange)="segmentChanged($event)">
   <ion-segment-button value="0">
     Art&Théatre
@@ -21,12 +29,12 @@
     Tounes Bet
   </ion-segment-button>
 </ion-segment>  
-</ion-toolbar>
-</ion-header>
+
+
 
 
 <!--Contenue de la page-->
-<ion-content padding>  
+<ion-content padding  scroll-y="false">  
   <ion-slides class="souslid" pager="false" [options]="sliderOptions">    
     <ion-slide > 
       
@@ -55,18 +63,72 @@
 
 <ion-slides #slides pager="false" [options]="sliderOptions" (ionSlidesChange)="slideShanged(slides)"(ionSlideDidChange)="slideShanged(slides)"(ionSlidesDidLoad)="slideShanged(slides)">
 
- <div class="container">
-    <div class="ul"> 
  <ion-slide class="test">
- 
-
- 
-   </ion-slide>  </div>
+ <ion-grid>
+  <div class="container">
+    <div class="ul">
+   <ion-row>
+     <ion-col>
+      <h4>2020</h4>
+      <ion-slides [options]="sliderConfig">
+        <ion-slide>
+      <p>jgfuih</p></ion-slide>
+      <ion-slide>
+        <p>cbvjgfuih</p></ion-slide>
+        <ion-slide>
+          <p>cbvjgfuih</p></ion-slide>
+          <ion-slide>
+            <p>cbvjgfuih</p></ion-slide>
+    </ion-slides>
+     </ion-col>
+   
+   </ion-row>
+   <ion-col>  <h4>2020</h4>
+    </ion-col>
+   <ion-row>
+     <ion-col>  <h4>2020</h4>
+      
+     </ion-col>
+   </ion-row>
+    </div>
   </div>
-  <ion-slide><ion-content>wbdiuhvuih ibuihvcwbv ci</ion-content></ion-slide>
-  <ion-slide><ion-content>3</ion-content></ion-slide>
+ </ion-grid>
+   </ion-slide>
+
+  <ion-slide>wbdiuhvuih ibuihvcwbv ci</ion-slide>
+  <ion-slide>3></ion-slide>
   <ion-slide>4</ion-slide>
 
 </ion-slides>
 
 </ion-content>
+
+<ion-tab-bar slot="bottom">
+  <ion-tab-button tab="tab1">
+    <ion-icon name="home-outline" size="small"></ion-icon>
+    <ion-label>Acceuil</ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button tab="tab2">
+    <ion-icon name="book-outline" size="small"></ion-icon>
+    <ion-label>Kiosque</ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button tab="tab3">
+    <ion-icon name="play-circle-outline"  size="small"></ion-icon>
+    <ion-label>Vidéo</ion-label>
+    <ion-badge>6</ion-badge>
+
+  </ion-tab-button>
+  
+  <ion-tab-button tab="tab4">
+    <ion-icon name="star-outline"  size="small"></ion-icon>
+    <ion-label>Stories</ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button tab="tab5">
+    <ion-icon name="wallet-outline" size="small" color="primary"></ion-icon>      
+    <ion-label color="primary">Tickets</ion-label>
+  </ion-tab-button>
+  
+</ion-tab-bar>
