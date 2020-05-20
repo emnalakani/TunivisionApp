@@ -1,0 +1,28 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "Tunivisions",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {
+    "preferences": {
+      "ScrollEnabled": "false",
+      "android-minSdkVersion": "19",
+      "BackupWebStorage": "none",
+      "SplashMaintainAspectRatio": "true|false",
+      "AutoHideSplashScreen": "true",
+      "FadeSplashScreenDuration": "750",
+      "SplashShowOnlyFirstTime": "true|false",
+      "SplashScreen": "screen",
+      "FadeSplashScreen": "false",
+      "ShowSplashScreenSpinner": "false",
+      "SplashScreenDelay": "3000",
+      "SplashScreenSpinnerColor": "white"
+    }
+  }
+}

@@ -10,10 +10,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AutoHideDirective } from './auto-hide.directive';
 
+import { HttpClientModule, HttpClient } from '@angular/common/http'
+
 @NgModule({
-  declarations: [AppComponent, AutoHideDirective],
+  declarations: [AppComponent, AutoHideDirective ],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [
     StatusBar,
     SplashScreen,
