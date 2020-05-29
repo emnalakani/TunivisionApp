@@ -9,16 +9,19 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AutoHideDirective } from './auto-hide.directive';
-
+import { IonicStorageModule } from '@ionic/storage';
+import { AccessProviders } from './providers/access-providers';
 import { HttpClientModule, HttpClient } from '@angular/common/http'
 
 @NgModule({
   declarations: [AppComponent, AutoHideDirective ],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,     IonicStorageModule.forRoot(),
+    HttpClientModule],
   providers: [
     StatusBar,
     SplashScreen,
+    AccessProviders,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

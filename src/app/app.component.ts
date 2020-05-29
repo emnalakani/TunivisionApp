@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {Storage} from '@ionic/storage';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -44,7 +44,7 @@ export class AppComponent implements OnInit  {
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor(
-    
+    private storage: Storage, 
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar
