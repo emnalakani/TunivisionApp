@@ -55,110 +55,39 @@
 </ion-grid>
 
 <!--lister les articles-->
-<div class="article">
-<a href="article-details">
-<ion-row  class="ion-align-items-center" class="ion-justify-content-around" class="ion-align-items-center	">
-<ion-col fixed="true" class="ion-margin-vertical	"	 >
-<div class="container">
-<div class="box">
-  <div class="imgBx">
-  <img  src="assets/images/école.jpg"/>
-  <div class="category"><p>People</p></div>
-</div>
-  <div class="content">
-  <h3> Couvre-feu: Précision du Ministère de l’Intérieur </h3>
+<ion-list>
+  <ion-item *ngFor="let data of lstposts">
+    
+      <ion-label>
+        
+       
+      </ion-label>
+      
 
-  <p>
-    Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.
-    Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.
-    <a href="#">Lire plus ...</a>
-  </p>
-</div>
-</div>
-</div>
-</ion-col>
-</ion-row>
-</a>
-<ion-row>
-<ion-col fixed="true" class="ion-margin-vertical	"	 >
+<a href="article-details">
+  <ion-row  class="ion-align-items-center" class="ion-justify-content-around" class="ion-align-items-center	">
+  <ion-col fixed="true" class="ion-margin-vertical	"	 >
   <div class="container">
   <div class="box">
     <div class="imgBx">
-    <img  src="assets/images/école.jpg"/>
-    <div class="category"><p>People</p></div>
+    <img  src="http://localhost//uploads\files\post\{{data.image}}"/>
+    <div class="category"><p>{{data.categorie.nomCategorie}}</p></div>
   </div>
     <div class="content">
-    <h3> Couvre-feu: Précision du Ministère de l’Intérieur </h3>
+    <h3>{{data.titre}}</h3>
+  
     <p>
-      Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.
-      Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.
+      {{data.description}}
+      <a href="#">Lire plus ...</a>
     </p>
   </div>
   </div>
   </div>
   </ion-col>
-</ion-row>
-
-<ion-row>
-  <ion-col fixed="true" class="ion-margin-vertical	"	 >
-    <div class="container">
-    <div class="box">
-      <div class="imgBx">
-      <img  src="assets/images/école.jpg"/>
-      <div class="category"><p>People</p></div>
-    </div>
-      <div class="content">
-      <h3> Couvre-feu: Précision du Ministère de l’Intérieur </h3>
-      <p>
-        Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.
-        Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.
-      </p>
-    </div>
-    </div>
-    </div>
-    </ion-col>
-</ion-row>
-<ion-row>
-    <ion-col fixed="true" class="ion-margin-vertical	"	 >
-      <div class="container">
-      <div class="box">
-        <div class="imgBx">
-        <img  src="assets/images/école.jpg"/>
-        <div class="category"><p>People</p></div>
-      </div>
-        <div class="content">
-        <h3> Couvre-feu: Précision du Ministère de l’Intérieur </h3>
-        <p>
-          Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.
-          Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.
-        </p>
-      </div>
-      </div>
-      </div>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col fixed="true" class="ion-margin-vertical	"	 >
-        <div class="container">
-        <div class="box">
-          <div class="imgBx">
-          <img  src="assets/images/école.jpg"/>
-          <div class="category"><p>People</p></div>
-        </div>
-          <div class="content">
-          <h3> Couvre-feu: Précision du Ministère de l’Intérieur </h3>
-          <p>
-            Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.
-            Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.
-          </p>
-        </div>
-        </div>
-        </div>
-        </ion-col>
- 
-
   </ion-row>
-  </div>
+  </a>
+</ion-item>
+</ion-list>
   
   <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
     <ion-infinite-scroll-content
