@@ -10,8 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AutoHideDirective } from './auto-hide.directive';
 import { IonicStorageModule } from '@ionic/storage';
-import { AccessProviders } from './providers/access-providers';
-import { HttpClientModule, HttpClient } from '@angular/common/http'
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, AutoHideDirective ],
@@ -21,7 +20,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http'
   providers: [
     StatusBar,
     SplashScreen,
-    AccessProviders,
+    
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

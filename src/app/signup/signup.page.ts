@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ToastController, LoadingController, AlertController} from '@ionic/angular'
-import { AccessProviders } from '../providers/access-providers';
+import { ToastController, LoadingController, AlertController} from '@ionic/angular';
 
 
 
@@ -19,7 +18,6 @@ confirm_pass : string = "";
 disabledButton ;
   constructor(private router: Router,private toastCtrl :ToastController,
   private loadingCtrl : LoadingController, private alertCtrl: AlertController,
-  private accsPrvds : AccessProviders,
   ) { }
 
   ngOnInit() {
@@ -65,10 +63,8 @@ this.presentToast("Entrez votre nom");
 
 
       }
-      this. accsPrvds.postData(body, 'proses_api.php').subscribe((res:any)=>{
-        
-      }
-       )
+
+      
     });
   }}
   async presentToast(msg){
