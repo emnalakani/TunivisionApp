@@ -5,8 +5,12 @@
     </ion-buttons>
     <ion-title>      
       <img src="assets/images/tuni.png" class="logo" style="float:left; width: 110px; height:37"> 
+      </ion-title>
       
-    </ion-title>
+          <ion-button slot="end" color="light" (click)="prosesLogout()">
+               <ion-icon slot="icon-only" name="exit"></ion-icon>
+          
+      </ion-button>
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">

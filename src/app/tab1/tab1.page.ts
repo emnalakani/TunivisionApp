@@ -45,4 +45,13 @@ ionViewDidEnter(){
     this.username = this.datastorage.username;
   });
 }
+async prosesLogout(){
+  this.storage.clear();
+  this.navCtrl.navigateRoot(['/login']);
+  const toast = await this.toastCtrl.create({
+    message: 'Logout successufuly',
+    duration: 1500
+  });
+  toast.present();
+}
 }
