@@ -62,13 +62,7 @@ export class AppComponent implements OnInit  {
       this.splashScreen.hide();
     });
 
-    this.storage.get('storage_xxx').then((res)=>{
-      if(res =>null){
-        this.navCtrl.navigateRoot('/login');
-      }else{
-        this.navCtrl.navigateRoot('/home');
-      }
-      });
+    
 
   }
   ngOnInit() {

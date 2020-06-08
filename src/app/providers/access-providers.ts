@@ -6,7 +6,7 @@ import 'rxjs/add/operator/timeout';
 @Injectable()
 export class AccessProviders {
     //URL backend API
-    server: string ="http://login.test/";
+    server: string ="http://localhost/api/";
     constructor(
         public http: HttpClient
     ){}

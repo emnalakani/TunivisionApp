@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import {Posts} from '../classes/posts'
+import { Router, ActivatedRoute } from '@angular/router';
+import { ToastController, LoadingController, AlertController, NavController} from '@ionic/angular'
+import { AccessProviders } from '../providers/access-providers';
+import {Storage} from '@ionic/storage';
 
 @Component({
   selector: 'app-tab1',
@@ -8,8 +12,17 @@ import {Posts} from '../classes/posts'
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
+  datastorage: any;
+  username:string;
   categories=['Tunivisons','TuniKids','TuniSport','TuniChef','TuniDeco'];
-  constructor(private _ApiService: ApiService) {}
+  constructor(private _ApiService: ApiService,
+    private router: Router,
+    private toastCtrl :ToastController,
+    private loadingCtrl : LoadingController,
+    private alertCtrl: AlertController,
+    private accsPrvds : AccessProviders,
+    private storage: Storage,
+    public navCtrl: NavController) {}
   onCategoryChange(category){
     console.log(category.detail.value); }
 
@@ -24,5 +37,12 @@ export class Tab1Page {
         }
       )
 
+}
+ionViewDidEnter(){
+  this.storage.get('storage_xxx').then((res)=>{
+    console.log(res);  
+    this.datastorage= res;
+    this.username = this.datastorage.username;
+  });
 }
 }

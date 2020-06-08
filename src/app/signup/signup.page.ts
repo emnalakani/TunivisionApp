@@ -17,8 +17,10 @@ naissance : string = "" ;
 password : string = "";
 confirm_pass : string = "";
 disabledButton ;
-  constructor(private router: Router,private toastCtrl :ToastController,
-  private loadingCtrl : LoadingController, private alertCtrl: AlertController,
+  constructor(private router: Router,
+  private toastCtrl :ToastController,
+  private loadingCtrl : LoadingController,
+  private alertCtrl: AlertController,
   private accsPrvds : AccessProviders,
   ) { }
 
