@@ -13,8 +13,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ApiService } from './services/api.service';
 import { IonicStorageModule } from '@ionic/storage';
 import { AccessProviders } from './providers/access-providers';
-
-
+import { PreviewAnyFile } from '@ionic-native/preview-any-file/ngx';
 @NgModule({
   declarations: [AppComponent, AutoHideDirective],
   entryComponents: [],
@@ -24,7 +23,9 @@ import { AccessProviders } from './providers/access-providers';
     SplashScreen,
     ApiService,
     AccessProviders,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    PreviewAnyFile
+
   ],
   bootstrap: [AppComponent]
 })
