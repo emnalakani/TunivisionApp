@@ -13,320 +13,55 @@
 </ion-header>
 <ion-content [fullscreen]="true">
 <!--zone nouvel magazine-->
-<div class=app-mag>
+<div class="if" *ngIf="lstmagazines">
+
+<div class=app-mag  >
   <div class="app-mag-img">
-    <a href="magazine">
-    <img src="assets/images/magazine.jpg"> </a>
+ <img src="https://www.tunivisions-group.com/uploads\files\magazine\images\{{lstmagazines[0].thumbnail}}"> 
   </div>
   <div class="app-mag-info">
     <div class="app-mag-date">
 
-      <span>Octobre 27 2019</span>
+      <span>{{lstmagazines[0].magazine}}</span>
     </div>
     <div class="app-mag-desc">
-  <p>Lorem ipsbkd kldnvnksnc  restf cheihf vous bfihf termobfb metre en ncuisv jui huihv est </p> 
+  <p>{{lstmagazines[0].description}} </p> 
   <div class= "app-mag-icon">
-  <a href="#" tiltle ="panier">
+  <a href="panier" tiltle ="panier">
     <ion-icon name="cart-outline"></ion-icon> Panier
   </a>
   &nbsp;
-  <a href="#"><ion-icon name="book-outline"></ion-icon> Consulter</a><br>
+  <a [routerLink]="['/', 'magazine', lstmagazines[0].id]"><ion-icon name="book-outline"></ion-icon> Consulter</a><br>
 </div>
 <br>
 <ion-button class="app-mag-button" color="primary" >Achetez</ion-button>
   </div>
   </div>
 </div>
+</div>
 <!--timeline-->
 <!--slides-->
-<div class="container">
-  <div class="ul">
-  <h4>2020</h4>
-<ion-slides [options]="sliderConfig">
-  <ion-slide> 
-    <div class="mag">
-    <div class="mag-img">
-      <img src="assets/images/magazine.jpg">
-    </div>
-    <div class="mag-info">
-      <div class="mag-date">
-  
-        <span>Octobre 27 2019</span>
-      </div>
-      <div class="mag-desc">
-    <p>Lorem ipsbkd kldnvnksnc  restf cheihf vous bfihf termobfb metre en ncuisv jui huihv est </p> 
-    <div class= "mag-icon">
-    <a href="#" tiltle ="panier">
-      <ion-icon name="cart-outline"></ion-icon> Panier
-    </a>
-  <br>
-    <a href="#"><ion-icon name="book-outline"></ion-icon> Consulter</a><br>
-  </div>
-  
-    </div>
-    </div>
-  </div></ion-slide>
-  <ion-slide> <div class="mag">
-    <div class="mag-img">
-      <img src="assets/images/magazine.jpg">
-    </div>
-    <div class="mag-info">
-      <div class="mag-date">
-  
-        <span>Octobre 27 2019</span>
-      </div>
-      <div class="mag-desc">
-    <p>Lorem ipsbkd kldnvnksnc  restf cheihf vous bfihf termobfb metre en ncuisv jui huihv est </p> 
-    <div class= "mag-icon">
-    <a href="#" tiltle ="panier">
-      <ion-icon name="cart-outline"></ion-icon> Panier
-    </a>
-  <br>
-    <a href="#"><ion-icon name="book-outline"></ion-icon> Consulter</a><br>
-  </div>
-  
-    </div>
-    </div>
-  </div></ion-slide>
-  <ion-slide> <div class="mag">
-    <div class="mag-img">
-      <img src="assets/images/magazine.jpg">
-    </div>
-    <div class="mag-info">
-      <div class="mag-date">
-  
-        <span>Octobre 27 2019</span>
-      </div>
-      <div class="mag-desc">
-    <p>Lorem ipsbkd kldnvnksnc  restf cheihf vous bfihf termobfb metre en ncuisv jui huihv est </p> 
-    <div class= "mag-icon">
-    <a href="#" tiltle ="panier">
-      <ion-icon name="cart-outline"></ion-icon> Panier
-    </a>
-  <br>
-    <a href="#"><ion-icon name="book-outline"></ion-icon> Consulter</a><br>
-  </div>
-  
-    </div>
-    </div>
-  </div></ion-slide>
-  <ion-slide> <div class="mag">
-    <div class="mag-img">
-      <img src="assets/images/magazine.jpg">
-    </div>
-    <div class="mag-info">
-      <div class="mag-date">
-  
-        <span>Octobre 27 2019</span>
-      </div>
-      <div class="mag-desc">
-    <p>Lorem ipsbkd kldnvnksnc  restf cheihf vous bfihf termobfb metre en ncuisv jui huihv est </p> 
-    <div class= "mag-icon">
-    <a href="#" tiltle ="panier">
-      <ion-icon name="cart-outline"></ion-icon> Panier
-    </a>
-  <br>
-    <a href="#"><ion-icon name="book-outline"></ion-icon> Consulter</a><br>
-  </div>
-  
-    </div>
-    </div>
-  </div></ion-slide>
-  <ion-slide> <div class="mag">
-    <div class="mag-img">
-      <img src="assets/images/magazine.jpg">
-    </div>
-    <div class="mag-info">
-      <div class="mag-date">
-  
-        <span>Octobre 27 2019</span>
-      </div>
-      <div class="mag-desc">
-    <p>Lorem ipsbkd kldnvnksnc  restf cheihf vous bfihf termobfb metre en ncuisv jui huihv est </p> 
-    <div class= "mag-icon">
-    <a href="#" tiltle ="panier">
-      <ion-icon name="cart-outline"></ion-icon> Panier
-    </a>
-  <br>
-    <a href="#"><ion-icon name="book-outline"></ion-icon> Consulter</a><br>
-  </div>
-  
-    </div>
-    </div>
-  </div></ion-slide>
-  <ion-slide> <div class="mag">
-    <div class="mag-img">
-      <img src="assets/images/magazine.jpg">
-    </div>
-    <div class="mag-info">
-      <div class="mag-date">
-  
-        <span>Octobre 27 2019</span>
-      </div>
-      <div class="mag-desc">
-    <p>Lorem ipsbkd kldnvnksnc  restf cheihf vous bfihf termobfb metre en ncuisv jui huihv est </p> 
-    <div class= "mag-icon">
-    <a href="#" tiltle ="panier">
-      <ion-icon name="cart-outline"></ion-icon> Panier
-    </a>
-  <br>
-    <a href="#"><ion-icon name="book-outline"></ion-icon> Consulter</a><br>
-  </div>
-  
-    </div>
-    </div>
-  </div></ion-slide>
-</ion-slides>
-<h4>2020</h4>
-<ion-slides [options]="sliderConfig">
-  <ion-slide> 
-    <div class="mag">
-    <div class="mag-img">
-      <img src="assets/images/magazine.jpg">
-    </div>
-    <div class="mag-info">
-      <div class="mag-date">
-  
-        <span>Octobre 27 2019</span>
-      </div>
-      <div class="mag-desc">
-    <p>Lorem ipsbkd kldnvnksnc  restf cheihf vous bfihf termobfb metre en ncuisv jui huihv est </p> 
-    <div class= "mag-icon">
-    <a href="#" tiltle ="panier">
-      <ion-icon name="cart-outline"></ion-icon> Panier
-    </a>
-  <br>
-    <a href="#"><ion-icon name="book-outline"></ion-icon> Consulter</a><br>
-  </div>
-  
-    </div>
-    </div>
-  </div></ion-slide>
-  <ion-slide> <div class="mag">
-    <div class="mag-img">
-      <img src="assets/images/magazine.jpg">
-    </div>
-    <div class="mag-info">
-      <div class="mag-date">
-  
-        <span>Octobre 27 2019</span>
-      </div>
-      <div class="mag-desc">
-    <p>Lorem ipsbkd kldnvnksnc  restf cheihf vous bfihf termobfb metre en ncuisv jui huihv est </p> 
-    <div class= "mag-icon">
-    <a href="#" tiltle ="panier">
-      <ion-icon name="cart-outline"></ion-icon> Panier
-    </a>
-  <br>
-    <a href="#"><ion-icon name="book-outline"></ion-icon> Consulter</a><br>
-  </div>
-  
-    </div>
-    </div>
-  </div></ion-slide>
-  <ion-slide> <div class="mag">
-    <div class="mag-img">
-      <img src="assets/images/magazine.jpg">
-    </div>    <div class="mag-info">
-      <div class="mag-date">
-  
-        <span>Octobre 27 2019</span>
-      </div>
-      <div class="mag-desc">
-    <p>Lorem ipsbkd kldnvnksnc  restf cheihf vous bfihf termobfb metre en ncuisv jui huihv est </p> 
-    <div class= "mag-icon">
-    <a href="#" tiltle ="panier">
-      <ion-icon name="cart-outline"></ion-icon> Panier
-    </a>
-  <br>
-    <a href="#"><ion-icon name="book-outline"></ion-icon> Consulter</a><br>
-  </div>
-  
-    </div>
-    </div>
-  </div></ion-slide>
-  <ion-slide> <div class="mag">
-    <div class="mag-img">
-      <img src="assets/images/magazine.jpg">
-    </div>
-    <div class="mag-info">
-      <div class="mag-date">
-  
-        <span>Octobre 27 2019</span>
-      </div>
-      <div class="mag-desc">
-    <p>Lorem ipsbkd kldnvnksnc  restf cheihf vous bfihf termobfb metre en ncuisv jui huihv est </p> 
-    <div class= "mag-icon">
-    <a href="#" tiltle ="panier">
-      <ion-icon name="cart-outline"></ion-icon> Panier
-    </a>
-  <br>
-    <a href="#"><ion-icon name="book-outline"></ion-icon> Consulter</a><br>
-  </div>
-  
-    </div>
-    </div>
-  </div></ion-slide>
-  <ion-slide> <div class="mag">
-    <div class="mag-img">
-      <img src="assets/images/magazine.jpg">
-    </div>
-    <div class="mag-info">
-      <div class="mag-date">
-  
-        <span>Octobre 27 2019</span>
-      </div>
-      <div class="mag-desc">
-    <p>Lorem ipsbkd kldnvnksnc  restf cheihf vous bfihf termobfb metre en ncuisv jui huihv est </p> 
-    <div class= "mag-icon">
-    <a href="#" tiltle ="panier">
-      <ion-icon name="cart-outline"></ion-icon> Panier
-    </a>
-  <br>
-    <a href="#"><ion-icon name="book-outline"></ion-icon> Consulter</a><br>
-  </div>
-  
-    </div>
-    </div>
-  </div></ion-slide>
-  <ion-slide> <div class="mag">
-    <div class="mag-img">
-      <img src="assets/images/magazine.jpg">
-    </div>
-    <div class="mag-info">
-      <div class="mag-date">
-  
-        <span>Octobre 27 2019</span>
-      </div>
-      <div class="mag-desc">
-    <p>Lorem ipsbkd kldnvnksnc  restf cheihf vous bfihf termobfb metre en ncuisv jui huihv est </p> 
-    <div class= "mag-icon">
-    <a href="#" tiltle ="panier">
-      <ion-icon name="cart-outline"></ion-icon> Panier
-    </a>
-  <br>
-    <a href="#"><ion-icon name="book-outline"></ion-icon> Consulter</a><br>
-  </div>
-  
-    </div>
-    </div>
-  </div></ion-slide>
-</ion-slides>
+<div class="if" *ngIf="lstmagazines">
 
-<h4>2020</h4>
+<div class="container">
+  <div class="ul" >
+    <div class="for"*ngFor="let annee of lstannees">
+  <h4>{{annee.annee}}</h4>
 <ion-slides [options]="sliderConfig">
-  <ion-slide> 
-    <div class="mag">
+  <div class="for" *ngFor="let magazine of lstmagazines">
+  <div class="if"  *ngIf="magazine.annee === annee.annee">
+  <ion-slide >
+     <div class="mag">
     <div class="mag-img">
-      <img src="assets/images/magazine.jpg">
+      <img src="http://tunivisions-group.com/uploads\files\magazine\images\{{magazine.thumbnail}}">
     </div>
     <div class="mag-info">
       <div class="mag-date">
   
-        <span>Octobre 27 2019</span>
+        <span>{{magazine.magazine}}</span>
       </div>
       <div class="mag-desc">
-    <p>Lorem ipsbkd kldnvnksnc  restf cheihf vous bfihf termobfb metre en ncuisv jui huihv est </p> 
+    <p>{{magazine.description}}</p> 
     <div class= "mag-icon">
     <a href="#" tiltle ="panier">
       <ion-icon name="cart-outline"></ion-icon> Panier
@@ -338,117 +73,11 @@
     </div>
     </div>
   </div></ion-slide>
-  <ion-slide> <div class="mag">
-    <div class="mag-img">
-      <img src="assets/images/magazine.jpg">
-    </div>
-    <div class="mag-info">
-      <div class="mag-date">
-  
-        <span>Octobre 27 2019</span>
-      </div>
-      <div class="mag-desc">
-    <p>Lorem ipsbkd kldnvnksnc  restf cheihf vous bfihf termobfb metre en ncuisv jui huihv est </p> 
-    <div class= "mag-icon">
-    <a href="#" tiltle ="panier">
-      <ion-icon name="cart-outline"></ion-icon> Panier
-    </a>
-  <br>
-    <a href="#"><ion-icon name="book-outline"></ion-icon> Consulter</a><br>
-  </div>
-  
-    </div>
-    </div>
-  </div></ion-slide>
-  <ion-slide> <div class="mag">
-    <div class="mag-img">
-      <img src="assets/images/magazine.jpg">
-    </div>
-    <div class="mag-info">
-      <div class="mag-date">
-  
-        <span>Octobre 27 2019</span>
-      </div>
-      <div class="mag-desc">
-    <p>Lorem ipsbkd kldnvnksnc  restf cheihf vous bfihf termobfb metre en ncuisv jui huihv est </p> 
-    <div class= "mag-icon">
-    <a href="#" tiltle ="panier">
-      <ion-icon name="cart-outline"></ion-icon> Panier
-    </a>
-  <br>
-    <a href="#"><ion-icon name="book-outline"></ion-icon> Consulter</a><br>
-  </div>
-  
-    </div>
-    </div>
-  </div></ion-slide>
-  <ion-slide> <div class="mag">
-    <div class="mag-img">
-      <img src="assets/images/magazine.jpg">
-    </div>
-    <div class="mag-info">
-      <div class="mag-date">
-  
-        <span>Octobre 27 2019</span>
-      </div>
-      <div class="mag-desc">
-    <p>Lorem ipsbkd kldnvnksnc  restf cheihf vous bfihf termobfb metre en ncuisv jui huihv est </p> 
-    <div class= "mag-icon">
-    <a href="#" tiltle ="panier">
-      <ion-icon name="cart-outline"></ion-icon> Panier
-    </a>
-  <br>
-    <a href="#"><ion-icon name="book-outline"></ion-icon> Consulter</a><br>
-  </div>
-  
-    </div>
-    </div>
-  </div></ion-slide>
-  <ion-slide> <div class="mag">
-    <div class="mag-img">
-      <img src="assets/images/magazine.jpg">
-    </div>
-    <div class="mag-info">
-      <div class="mag-date">
-  
-        <span>Octobre 27 2019</span>
-      </div>
-      <div class="mag-desc">
-    <p>Lorem ipsbkd kldnvnksnc  restf cheihf vous bfihf termobfb metre en ncuisv jui huihv est </p> 
-    <div class= "mag-icon">
-    <a href="#" tiltle ="panier">
-      <ion-icon name="cart-outline"></ion-icon> Panier
-    </a>
-  <br>
-    <a href="#"><ion-icon name="book-outline"></ion-icon> Consulter</a><br>
-  </div>
-  
-    </div>
-    </div>
-  </div></ion-slide>
-  <ion-slide> <div class="mag">
-    <div class="mag-img">
-      <img src="assets/images/magazine.jpg">
-    </div>
-    <div class="mag-info">
-      <div class="mag-date">
-  
-        <span>Octobre 27 2019</span>
-      </div>
-      <div class="mag-desc">
-    <p>Lorem ipsbkd kldnvnksnc  restf cheihf vous bfihf termobfb metre en ncuisv jui huihv est </p> 
-    <div class= "mag-icon">
-    <a href="#" tiltle ="panier">
-      <ion-icon name="cart-outline"></ion-icon> Panier
-    </a>
-  <br>
-    <a href="#"><ion-icon name="book-outline"></ion-icon> Consulter</a><br>
-  </div>
-  
-    </div>
-    </div>
-  </div></ion-slide>
-</ion-slides>
+</div></div>
+  </ion-slides>
+
+</div>
+</div>
 </div>
 </div>
 <!---->

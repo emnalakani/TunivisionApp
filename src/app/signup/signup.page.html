@@ -20,12 +20,12 @@
  <ion-item >
 
 <ion-label position="floating"><ion-icon name="calendar-outline"></ion-icon>&nbsp;&nbsp; Date  de naissance </ion-label>
-<ion-datetime value="Date de naissance " display-timezone="utc" [(ngModel)]="naissance"></ion-datetime>
+<ion-datetime value="Date de naissance " display-timezone="utc" [(ngModel)]="naissance" min="1930" max="2010" ></ion-datetime>
 
 </ion-item> 
  <ion-item >
   <ion-label position="floating"><ion-icon name="lock-open-outline"></ion-icon>&nbsp;&nbsp;Mot de passe </ion-label>
-  <ion-input type="password " [(ngModel)]="password" ></ion-input>
+  <ion-input type="password " [(ngModel)]="password" minlength="6"  maxlength="12" ></ion-input>
  </ion-item>  
  <ion-item >
  <ion-label position="floating"><ion-icon name="lock-closed-outline"></ion-icon>&nbsp;&nbsp; Confirmer le mot de passe</ion-label>

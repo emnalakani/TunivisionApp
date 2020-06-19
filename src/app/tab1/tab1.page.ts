@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ToastController, LoadingController, AlertController, NavController} from '@ionic/angular'
 import { AccessProviders } from '../providers/access-providers';
 import {Storage} from '@ionic/storage';
+import {Magazine} from '../classes/magazine'
 
 @Component({
   selector: 'app-tab1',
@@ -13,7 +14,7 @@ import {Storage} from '@ionic/storage';
 })
 export class Tab1Page {
   datastorage: any;
-  username:string;
+  lstmagazines: Magazine[];
   categories=['Tunivisons','TuniKids','TuniSport','TuniChef','TuniDeco'];
   constructor(private _ApiService: ApiService,
     private router: Router,
@@ -37,12 +38,22 @@ export class Tab1Page {
         }
       )
 
+      this._ApiService.getmagazines()
+      .subscribe
+      (
+        data=>
+        {
+        this.lstmagazines = data.slice().reverse();
+        }
+      )
+
 }
+
+
 ionViewDidEnter(){
   this.storage.get('storage_xxx').then((res)=>{
     console.log(res);  
     this.datastorage= res;
-    this.username = this.datastorage.username;
   });
 }
 async prosesLogout(){

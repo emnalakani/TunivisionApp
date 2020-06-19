@@ -11,11 +11,11 @@ const routes: Routes = [
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
   },
   {
-    path: 'article-details',
+    path: 'article-details/:id',
     loadChildren: () => import('./article-details/article-details.module').then( m => m.ArticleDetailsPageModule)
   },
   {
-    path: 'magazine',
+    path: 'magazine/:id',
     loadChildren: () => import('./magazine/magazine.module').then( m => m.MagazinePageModule)
   },
   {

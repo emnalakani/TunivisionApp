@@ -19,19 +19,25 @@
     <ion-fab-button size="small" color="primary"><ion-icon name="notifications"  size="small"></ion-icon></ion-fab-button>
   </ion-fab-list>
 </ion-fab>
-
-
+<div class="back">
+<ion-fab horizontal="start" vertical="top" slot="fixed">
+  <ion-fab-button size="small">
+    <ion-icon name="arrow-back-outline" ></ion-icon>
+  </ion-fab-button>
+  </ion-fab></div>
 <ion-content >
-  
 
+   <div class="for" *ngFor="let post of lstposts"> 
+<div class="if" *ngIf="post.id === id">
+  <img src="http://tunivisions-group.com/uploads\files\post\{{post.image}}">
     <div class="ion-padding content-container" >
         
-       
+  
 
-    <h3>Sept étudiants Tunisiens reçoivent leur diplôme de l’Ecole Polytechnique à Paris en l’absence des responsables officiels du pays </h3>
+    <h3>{{post.titre}}</h3>
     <div class="article-inf">
-    <p > Nom de l'auteur <br/>
-    Publié à 20 Octobre 2019 à 10:25</p>
+    <p >  <br/>
+    Publié à {{post.updateAt}}</p>
     
     <ion-buttons class="center">
     <ion-button >
@@ -45,14 +51,9 @@
       </ion-button>Lire+tard
    </ion-buttons>
 </div>
-<p>Un groupe composé de 7 étudiants tunisiens ont décroché, en bloc, leur certificat de fin d’études de l’École Polytechnique de Paris, et il s’agit là d’un précédent unique en son genre.
-
-Une cérémonie de remise des diplômes, a été organisée en leur honneur, au début du mois de juin, pour couronner les efforts de ces jeunes en vue de les encourager à réaliser un brillant avenir.
-
-Néanmoins, malgré l’importance de l’événement, aucun fonctionnaire officiel tunisien n’était présent à Paris, contrairement à d’autres pays qui y étaient représentés au niveau d’ambassadeurs et de hauts cadres de l’Enseignement supérieur.
-
-Réagissant à cette négligence, plusieurs des pionniers des sites des réseaux sociaux ont exprimé leur colère face à cette indifférence de la part des responsables tunisiens, qui ne font rien pour améliorer les compétences des jeunes et développer leurs potentiels tout en les encourageant à l’édification de leur pays, alors que ces jeunes trouvent le soutien, l’encadrement, et une certaine ‘polarisation’ de la part des sociétés étrangères.</p>
-<div #triggerElement></div>
+<p>{{post.contenu}}</p>
+ </div>
+</div> 
  </div>
 
 </ion-content>

@@ -19,17 +19,20 @@
   <source src="https://youtu.be/7OkMZLJHDt4"/>
 </video>
 <!--zone nouvel magazine-->
+<div class="if" *ngIf="lstmagazines">
 <div class=app-mag>
+
   <div class="app-mag-img">
-    <img src="assets/images/magazine.jpg">
+    <img src="http://tunivisions-group.com/uploads\files\magazine\images\{{lstmagazines[0].thumbnail}}">
   </div>
   <div class="app-mag-info">
     <div class="app-mag-date">
-
-      <span>Octobre 27 2019</span>
+      
+      <span>{{lstmagazines[0].magazine}}</span>
     </div>
+  
     <div class="app-mag-desc">
-  <p>Lorem ipsbkd kldnvnksnc  restf cheihf vous bfihf termobfb metre en ncuisv jui huihv est </p> 
+  <p>{{lstmagazines[0].description}} </p> 
   <div class= "app-mag-icon">
   <a href="#" tiltle ="panier">
     <ion-icon name="cart-outline"></ion-icon> Panier
@@ -42,6 +45,8 @@
   </div>
   </div>
 </div>
+</div>
+
 
 <!--scroll category menu-->
 
@@ -60,21 +65,18 @@
 
 <!--lister les articles-->
 <ion-list>
-  <ion-item *ngFor="let data of lstposts">
+  <div class="if" *ngIf="lstposts">
+  <ion-item *ngFor="let data of lstposts.slice().reverse()" >
     
-      <ion-label>
-        
-       
-      </ion-label>
       
 
-<a href="article-details">
+
   <ion-row  class="ion-align-items-center" class="ion-justify-content-around" class="ion-align-items-center	">
   <ion-col fixed="true" class="ion-margin-vertical	"	 >
   <div class="container">
-  <div class="box">
+  <div class="box" [routerLink]="['/', 'article-details', data.id]">
     <div class="imgBx">
-    <img  src="http://localhost//uploads\files\post\{{data.image}}"/>
+    <img  src="http://tunivisions-group.com/uploads\files\post\{{data.image}}"/>
     <div class="category"><p>{{data.categorie.nomCategorie}}</p></div>
   </div>
     <div class="content">
@@ -89,8 +91,9 @@
   </div>
   </ion-col>
   </ion-row>
-  </a>
+  
 </ion-item>
+</div>
 </ion-list>
   
   <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
@@ -101,7 +104,7 @@
   </ion-infinite-scroll>
 </ion-content>
 
-<ion-tabs>
+
 
   
   <ion-tab-bar slot="bottom">
@@ -134,4 +137,4 @@
     
   </ion-tab-bar>
 
-</ion-tabs>
+

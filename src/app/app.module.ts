@@ -14,6 +14,7 @@ import { ApiService } from './services/api.service';
 import { IonicStorageModule } from '@ionic/storage';
 import { AccessProviders } from './providers/access-providers';
 
+
 @NgModule({
   declarations: [AppComponent, AutoHideDirective],
   entryComponents: [],

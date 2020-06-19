@@ -10,40 +10,32 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <video controls width="100%" >
-    <source src="https://youtu.be/7OkMZLJHDt4"/>
-  </video>
+  
+    <ion-item *ngFor="let live of live">
+  <iframe [src]="getliveUrl(live)" allowfullscreen>
+  </iframe>
+</ion-item> 
+  
 
   <ion-item><div class="date">
     <ion-label> <ion-button fill="clear" ><ion-icon name="calendar-outline" slot="start"></ion-icon>&nbsp;jj/mm/aaaa </ion-button></ion-label>
     <ion-datetime displayFormat="D MMM YYYY " min="1997" max="2010" ></ion-datetime>
     </div></ion-item>
 
-  
+  <ion-list>
+    <ion-item *ngFor="let data of lstvideos">
   <ion-card>
-    <video controls width="100%" >
-      <source src="https://youtu.be/7OkMZLJHDt4"/>
-    </video>
+    <iframe [src]="getEmbedUrl(data)" allowfullscreen>
+     </iframe>
     <ion-card-header>
-      <ion-card-subtitle>07 avril 2020</ion-card-subtitle>
+      <ion-card-subtitle><ion-icon name="heart" color="medium"></ion-icon>{{data.likes_total}} {{data.views_total}} vues</ion-card-subtitle>
     </ion-card-header>
-    <ion-card-content>
-      Founded in 1829 on an isthmus between Lake Monona and Lake Mendota ...
-
+    <ion-card-content >
+          {{data.title}}
         <ion-item-divider>
           <ion-label>  
-            <ion-row><ion-col>
-          <ion-icon name="heart" color="medium"></ion-icon> 250k &nbsp;&nbsp; 
-       </ion-col>
-       <ion-col>
-          150 commentaires&nbsp;
-          20 partages &nbsp;
-          300k vues </ion-col></ion-row>
-          </ion-label>
-        </ion-item-divider>
-    
-    
-        <ion-row>
+         
+      <ion-row>
           <ion-col>
            <ion-button fill="clear">
           <ion-icon name="heart-outline" color="medium"></ion-icon> j'aime
@@ -55,91 +47,14 @@
           </ion-col>
           <ion-col>
             <ion-button fill="clear" ><ion-icon name="arrow-redo-outline" color="medium"></ion-icon>Partager</ion-button>
-
-          </ion-col>
+           </ion-col>
         </ion-row>
+      </ion-label>
+    </ion-item-divider>
       </ion-card-content>
   </ion-card>
-  <ion-card>
-    <video controls width="100%" >
-      <source src="https://youtu.be/7OkMZLJHDt4"/>
-    </video>
-    <ion-card-header>
-      <ion-card-subtitle>07 avril 2020</ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content>
-      Founded in 1829 on an isthmus between Lake Monona and Lake Mendota ...
-
-        <ion-item-divider>
-          <ion-label>  
-            <ion-row><ion-col>
-          <ion-icon name="heart" color="medium"></ion-icon> 250k &nbsp;&nbsp; 
-       </ion-col>
-       <ion-col>
-          150 commentaires&nbsp;
-          20 partages &nbsp;
-          300k vues </ion-col></ion-row>
-          </ion-label>
-        </ion-item-divider>
-    
-    
-        <ion-row>
-          <ion-col>
-           <ion-button fill="clear">
-          <ion-icon name="heart-outline" color="medium"></ion-icon> j'aime
-        </ion-button>
-          </ion-col>
-          <ion-col>
-           <ion-button fill="clear" ><ion-icon name="chatbox-outline" color="medium"></ion-icon> Commenter</ion-button>
-
-          </ion-col>
-          <ion-col>
-            <ion-button fill="clear" ><ion-icon name="arrow-redo-outline" color="medium"></ion-icon>Partager</ion-button>
-
-          </ion-col>
-        </ion-row>
-      </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <video controls width="100%" >
-      <source src="https://youtu.be/7OkMZLJHDt4"/>
-    </video>
-    <ion-card-header>
-      <ion-card-subtitle>07 avril 2020</ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content>
-      Founded in 1829 on an isthmus between Lake Monona and Lake Mendota ...
-
-        <ion-item-divider>
-          <ion-label>  
-            <ion-row><ion-col>
-          <ion-icon name="heart" color="medium"></ion-icon> 250k &nbsp;&nbsp; 
-       </ion-col>
-       <ion-col>
-          150 commentaires&nbsp;
-          20 partages &nbsp;
-          300k vues </ion-col></ion-row>
-          </ion-label>
-        </ion-item-divider>
-    
-    
-        <ion-row>
-          <ion-col>
-           <ion-button fill="clear">
-          <ion-icon name="heart-outline" color="medium"></ion-icon> j'aime
-        </ion-button>
-          </ion-col>
-          <ion-col>
-           <ion-button fill="clear" ><ion-icon name="chatbox-outline" color="medium"></ion-icon> Commenter</ion-button>
-
-          </ion-col>
-          <ion-col>
-            <ion-button fill="clear" ><ion-icon name="arrow-redo-outline" color="medium"></ion-icon>Partager</ion-button>
-
-          </ion-col>
-        </ion-row>
-      </ion-card-content>
-  </ion-card> 
+</ion-item>
+</ion-list>
 </ion-content>
 
 <ion-tab-bar slot="bottom">
