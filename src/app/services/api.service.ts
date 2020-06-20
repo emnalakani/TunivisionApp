@@ -24,7 +24,7 @@ export class ApiService
         return this.httpclient.get("https://www.tunivisions-group.com/api/annees.json")
                             }
       getcommandes(): Observable<any> {
-           return this.httpclient.get("http://localhost/api/commandes.json")
+           return this.httpclient.get("https://www.tunivisions-group.com/api/commandes.json")
                                      }
                                                
 

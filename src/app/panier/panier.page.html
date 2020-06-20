@@ -11,55 +11,35 @@
 
 <ion-content>
 
+  <div class="if" *ngIf="PanierStorage">
+    <div class="for"*ngFor="let magazine of PanierStorage;let i = index">
 
   <div class=app-mag>
     <div class="app-mag-img">
-      <img src="assets/images/magazine.jpg">
+      <img src="https://www.tunivisions-group.com/uploads\files\magazine\images\{{magazine.thumbnail}}">
     </div>
     <div class="app-mag-info">
       <div class="app-mag-date">
   
-        <span>Octobre 27 2019</span>
+        <span>{{magazine.magazine}}</span>
       </div>
       <div class="app-mag-desc">
-    <p>Lorem ipsbkd kldnvnksnc  restf cheihf vous bfihf termobfb metre en ncuisv jui huihv est </p> 
+    <p>{{magazine.description}} </p> 
     <div class= "app-mag-icon">
-    <a href="#" tiltle ="panier">
+    <a (click)="removeMagazine(magazine, i)">
       <ion-icon name="trash-outline"></ion-icon> retirer
     </a>
     &nbsp;
     &nbsp;
-  <a href="/magazine"><ion-icon name="book-outline"></ion-icon> Consulter</a><br>
+  <a [routerLink]="['/', 'magazine', magazine.id]"><ion-icon name="book-outline"></ion-icon> Consulter</a><br>
   </div>
   <br>
     </div>
     </div>
-  </div>
+  </div></div></div>
 
 
-  <div class=app-mag>
-    <div class="app-mag-img">
-      <img src="assets/images/magazine.jpg">
-    </div>
-    <div class="app-mag-info">
-      <div class="app-mag-date">
   
-        <span>Octobre 27 2019</span>
-      </div>
-      <div class="app-mag-desc">
-    <p>Lorem ipsbkd kldnvnksnc  restf cheihf vous bfihf termobfb metre en ncuisv jui huihv est </p> 
-    <div class= "app-mag-icon">
-    <a href="#" tiltle ="panier">
-      <ion-icon name="trash-outline"></ion-icon> retirer
-    </a>
-    &nbsp;
-    &nbsp;
-  <a href="#"><ion-icon name="book-outline"></ion-icon> Consulter</a><br>
-  </div>
-  <br>
-    </div>
-    </div>
-  </div>
   <footer>
   <div class=app-mag>
    <p>totale : </p> <br/>

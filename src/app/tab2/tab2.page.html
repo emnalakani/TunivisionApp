@@ -27,7 +27,7 @@
     <div class="app-mag-desc">
   <p>{{lstmagazines[0].description}} </p> 
   <div class= "app-mag-icon">
-  <a href="panier" tiltle ="panier">
+  <a tiltle ="panier" (click)="addToPanier(lstmagazines[0])">
     <ion-icon name="cart-outline"></ion-icon> Panier
   </a>
   &nbsp;
@@ -63,11 +63,11 @@
       <div class="mag-desc">
     <p>{{magazine.description}}</p> 
     <div class= "mag-icon">
-    <a href="#" tiltle ="panier">
+    <a  tiltle ="panier" (click)="addToPanier(magazine)">
       <ion-icon name="cart-outline"></ion-icon> Panier
     </a>
   <br>
-    <a href="#"><ion-icon name="book-outline"></ion-icon> Consulter</a><br>
+    <a [routerLink]="['/', 'magazine', magazine.id]"><ion-icon name="book-outline"></ion-icon> Consulter</a><br>
   </div>
   
     </div>

@@ -16,7 +16,7 @@
 <img src="https://www.tunivisions-group.com/uploads\files\magazine\images\{{magazine.thumbnail}}" height="150px">
 <h3>{{magazine.magazine}}</h3>
 
-<ion-button color="dark" size="large">acheter - <br/> {{magazine.prix}} TDN</ion-button><br/>
+<ion-button color="dark" size="large" (click)="addToPanier(magazine)">acheter - <br/> {{magazine.prix}} TDN</ion-button><br/>
 
 </div>
 
