@@ -49,7 +49,6 @@ export class Tab1Page {
 
 }
 
-
 ionViewDidEnter(){
   this.storage.get('storage_xxx').then((res)=>{
     console.log(res);  
@@ -65,4 +64,49 @@ async prosesLogout(){
   });
   toast.present();
 }
+
+addToPanier(magazine : Magazine) : void{
+  let added : boolean = false;
+  //si le panier est vide
+  this.storage.get("Panier").then(async (data : Magazine[])=>{
+   if(data === null || data.length === 0){
+     data = [];
+     data.push(magazine)
+     const toast =  await this.toastCtrl.create({
+      message: 'ajouter au panier',
+      duration: 1500
+    });toast.present();
+   }
+   else{
+     //si le panier n'est pas vide
+     for(let i = 0 ;i< data.length;i++){
+       const element : Magazine =data[i];
+       if(magazine.id ===element.id){
+         //le panier n'est pas vide et contient l'article
+        
+         const toast =  await this.toastCtrl.create({
+           message: 'deja ajouter',
+           duration: 1500
+         });toast.present();
+         added = true;
+       }
+     }
+     if(!added){
+       //le panier n'est pas vide et ne contient pas l'article
+       data.push(magazine)
+       const toast =  await this.toastCtrl.create({
+        message: 'ajouter au panier',
+        duration: 1500
+      });toast.present();
+     }
+   }
+   this.storage.set("Panier",data)
+   
+
+   
+  })
+}
+
+
+
 }

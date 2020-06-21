@@ -34,11 +34,11 @@
     <div class="app-mag-desc">
   <p>{{lstmagazines[0].description}} </p> 
   <div class= "app-mag-icon">
-  <a href="#" tiltle ="panier">
+  <a (click)="addToPanier(lstmagazines[0])">
     <ion-icon name="cart-outline"></ion-icon> Panier
   </a>
   &nbsp;
-<a href="#"><ion-icon name="book-outline"></ion-icon> Consulter</a><br>
+<a [routerLink]="['/', 'magazine', lstmagazines[0].id]"><ion-icon name="book-outline"></ion-icon> Consulter</a><br>
 </div>
 <br>
 <ion-button class="app-mag-button" color="primary" >Achetez</ion-button>

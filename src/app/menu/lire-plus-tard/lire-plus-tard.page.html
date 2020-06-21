@@ -1,0 +1,94 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary" >
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>      
+      lire plus tard
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/panier']">
+        <ion-icon name="cart-outline"></ion-icon>      
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-segment (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="Articles">
+      <ion-label>Articles</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Videos">
+      <ion-label>Videos</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div *ngIf="page === 'Articles'">
+    <ion-item *ngFor="let data of lstposts ; let i = index" >
+    
+      <ion-row  class="ion-align-items-center" class="ion-justify-content-around" class="ion-align-items-center	">
+      <ion-col fixed="true" class="ion-margin-vertical	"	 >
+      <div class="container">
+      <div class="box" [routerLink]="['/', 'article-details', data.id]">
+        <div class="imgBx">
+        <img  src="http://tunivisions-group.com/uploads\files\post\{{data.image}}"/>
+        <div class="category"><p>{{data.categorie.nomCategorie}}</p></div>
+      </div>
+        <div class="content">
+        <h3>{{data.titre}}</h3>
+      
+        <p>
+          {{data.description}}
+          <a href="#">Lire plus ...</a>
+        </p>
+       
+      </div>
+      </div>
+      <a (click)="removeArticle(data, i)">
+        <ion-icon name="trash-outline"></ion-icon> retirer
+      </a> 
+      </div>
+      </ion-col>
+      </ion-row>
+      
+    </ion-item>
+  </div>
+  <div *ngIf="page === 'Videos'">
+    <ion-list>
+      <ion-item *ngFor="let video of lstvideos ;let i = index">
+    <ion-card>
+      <iframe [src]="getEmbedUrl(video)" allowfullscreen>
+       </iframe>
+      <ion-card-header>
+        <ion-card-subtitle><ion-icon name="heart" color="medium"></ion-icon>{{video.likes_total}} {{video.views_total}} vues</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content >
+            {{video.title}}
+          <ion-item-divider>
+            <ion-label>  
+           
+        <ion-row>
+            <ion-col>
+             <ion-button fill="clear">
+            <ion-icon name="heart-outline" color="medium"></ion-icon> j'aime
+          </ion-button>
+            </ion-col>
+            <ion-col>
+             <ion-button fill="clear" ><ion-icon name="chatbox-outline" color="medium"></ion-icon> Commenter</ion-button>
+  
+            </ion-col>
+            <ion-col>
+              <a (click)="removeVideo(video, i)">
+                <ion-icon name="trash-outline"></ion-icon> retirer
+              </a>          </ion-col>
+          </ion-row>
+        </ion-label>
+      </ion-item-divider>
+        </ion-card-content>
+    </ion-card>
+  </ion-item>
+  </ion-list>
+  </div>
+
+</ion-content>

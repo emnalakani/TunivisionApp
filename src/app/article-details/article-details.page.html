@@ -46,9 +46,9 @@
       <ion-button >&nbsp; &nbsp;
         <ion-icon name="share-social" color="Medium" size="small"> </ion-icon>
       </ion-button>15k
-      <ion-button >&nbsp;&nbsp;
-        <ion-icon name="bookmark-outline" color="Medium" size="small"> </ion-icon>
-      </ion-button>Lire+tard
+      <ion-button (click)="addPlusTardArticle(post)">&nbsp;&nbsp;
+        <ion-icon name="bookmark-outline" color="Medium" size="small"> </ion-icon>Lire+tard
+      </ion-button>
    </ion-buttons>
 </div>
 <p>{{post.contenu}}</p>

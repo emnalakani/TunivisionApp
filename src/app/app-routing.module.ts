@@ -33,7 +33,11 @@ const routes: Routes = [
   {
     path: 'signup',
     loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
+  },  {
+    path: 'lire-plus-tard',
+    loadChildren: () => import('./menu/lire-plus-tard/lire-plus-tard.module').then( m => m.LirePlusTardPageModule)
   },
+
 
 ];
 @NgModule({
