@@ -1,5 +1,7 @@
 
-
+ion-content{
+  --padding-top	:10px;
+}
 
 .logo{
   margin-left:-20;
@@ -107,6 +109,7 @@ ion-label{
   box-shadow: 0 0.5rem 0.7rem rgba(0,0,0,0.2);
   display: flex;
   border-radius: 8px;
+  
 
 }
 .box .imgBx{

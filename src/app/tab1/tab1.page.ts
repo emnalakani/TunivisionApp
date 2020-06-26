@@ -15,7 +15,7 @@ import {Magazine} from '../classes/magazine'
 export class Tab1Page {
   datastorage: any;
   lstmagazines: Magazine[];
-  categories=['Tunivisons','TuniKids','TuniSport','TuniChef','TuniDeco'];
+  categories=['all','Politique','Régions','People','Chroniques','Societé'];
   constructor(private _ApiService: ApiService,
     private router: Router,
     private toastCtrl :ToastController,
@@ -25,8 +25,9 @@ export class Tab1Page {
     private storage: Storage,
     public navCtrl: NavController) {}
   onCategoryChange(category){
-    console.log(category.detail.value); }
-
+    // console.log(category.detail.value); 
+  }
+    
     lstposts: Posts[];
     ngOnInit() {
       this._ApiService.getposts()
@@ -49,21 +50,8 @@ export class Tab1Page {
 
 }
 
-ionViewDidEnter(){
-  this.storage.get('storage_xxx').then((res)=>{
-    console.log(res);  
-    this.datastorage= res;
-  });
-}
-async prosesLogout(){
-  this.storage.clear();
-  this.navCtrl.navigateRoot(['/login']);
-  const toast = await this.toastCtrl.create({
-    message: 'Logout successufuly',
-    duration: 1500
-  });
-  toast.present();
-}
+
+
 
 addToPanier(magazine : Magazine) : void{
   let added : boolean = false;
@@ -106,7 +94,10 @@ addToPanier(magazine : Magazine) : void{
    
   })
 }
-
-
+currentCategorie = "all"
+changeCategory(categorie){
+  this.currentCategorie = categorie;
+  console.log(this.currentCategorie);
+}
 
 }

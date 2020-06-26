@@ -37,6 +37,10 @@ const routes: Routes = [
     path: 'lire-plus-tard',
     loadChildren: () => import('./menu/lire-plus-tard/lire-plus-tard.module').then( m => m.LirePlusTardPageModule)
   },
+  {
+    path: 'compte',
+    loadChildren: () => import('./menu/compte/compte.module').then( m => m.ComptePageModule)
+  },
 
 
 ];

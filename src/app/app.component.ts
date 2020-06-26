@@ -4,7 +4,7 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import {Storage} from '@ionic/storage';
-import {NavController} from '@ionic/angular'
+import {NavController,ToastController} from '@ionic/angular'
 
 @Component({
   selector: 'app-root',
@@ -51,7 +51,9 @@ export class AppComponent implements OnInit  {
     private navCtrl: NavController,
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private toastCtrl :ToastController,
+
   ) {
     this.initializeApp();
   }
@@ -65,10 +67,28 @@ export class AppComponent implements OnInit  {
     
 
   }
+  datastorage: any;
   ngOnInit() {
     const path = window.location.pathname.split('folder/')[1];
     if (path !== undefined) {
       this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
     }
+
+    this.storage.get('storage_xxx').then((res)=>{
+      console.log(res);  
+      this.datastorage= res;
+    });
+  }
+  
+
+
+  async prosesLogout(){
+    this.storage.remove('storage_xxx');
+    this.navCtrl.navigateRoot(['/login']);
+    const toast = await this.toastCtrl.create({
+      message: 'Logout successufuly',
+      duration: 1500
+    });
+    toast.present();
   }
 }
