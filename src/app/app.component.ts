@@ -83,7 +83,7 @@ export class AppComponent implements OnInit  {
 
 
   async prosesLogout(){
-    this.storage.remove('storage_xxx');
+    this.storage.clear();
     this.navCtrl.navigateRoot(['/login']);
     const toast = await this.toastCtrl.create({
       message: 'Logout successufuly',

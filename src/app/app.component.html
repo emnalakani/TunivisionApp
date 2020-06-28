@@ -20,7 +20,7 @@
           <ion-icon name="cart-outline"></ion-icon>   &nbsp;&nbsp;   &nbsp;&nbsp;  
           <ion-label>Panier</ion-label> 
          </ion-item>
-         <ion-item>
+         <ion-item routerLink="reclamation">
         <ion-icon name="chatbubbles-outline"></ion-icon>&nbsp;&nbsp;   &nbsp;&nbsp; 
        <ion-label>Réclamation</ion-label>
        </ion-item>
@@ -29,7 +29,7 @@
        <ion-label>Parainage</ion-label>
        </ion-item>
      </ion-list>
- <div *ngIf="datastorage; else elseBlock">
+
         <ion-list >
           <ion-item lines="none" (click)="prosesLogout()">
             <ion-icon name="log-out-outline" ></ion-icon>  &nbsp;&nbsp;  &nbsp;&nbsp; 
@@ -37,16 +37,7 @@
            </ion-item>
            
         </ion-list>
-      </div>
-      <ng-template #elseBlock>
-        <ion-list >
-        <ion-item lines="none" routerLink="login">
-          <ion-icon name="log-out-outline" ></ion-icon>  &nbsp;&nbsp;  &nbsp;&nbsp; 
-         <ion-label>Connecter</ion-label>
-         </ion-item>
-         
-      </ion-list>
-    </ng-template>
+    
       
       </ion-content>
     </ion-menu>

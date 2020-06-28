@@ -5,6 +5,7 @@ import { ActivatedRoute } from "@angular/router";
 import { ApiService } from '../services/api.service';
 import {Storage} from '@ionic/storage';
 import {Posts} from '../classes/posts'
+import { NgForOf } from '@angular/common';
 @Component({
   selector: 'app-article-details',
   templateUrl: './article-details.page.html',
@@ -39,8 +40,6 @@ constructor(private renderer: Renderer2,
           this.lstposts = data;
           }
         )
-    
-
 
   }
 
@@ -82,6 +81,78 @@ constructor(private renderer: Renderer2,
        }
      }
      this.storage.set("PlusTardArticle",data)
+     
+  
+     
+    })
+  }
+  listvu : Posts[] ;
+  ionViewDidEnter(){
+    
+    this.storage.get('vu').then((res)=>{
+      console.log(res);
+      this.listvu=res;
+    });
+    this.storage.get('score').then((res)=>{
+      console.log(res);
+      this.test=res;
+    });
+   
+  
+  }
+ test : number;
+ seen : boolean=false;
+  score(score) : void{
+    if(this.listvu){
+  for(let i = 0 ;i< this.listvu.length;i++){
+    if(this.id == this.listvu[i].id){
+this.seen = true;
+    }
+  }}
+  if(this.seen== false){
+    //si  score est null
+    this.storage.get("score").then(async ()=>{
+      console.log(score); 
+    score =score+ 5;
+     this.storage.set("score",score)
+     const toast =  await this.toastCtrl.create({
+      message: '+5',
+      duration: 1500
+    });toast.present();
+  
+     
+    })
+  }
+  }
+
+  Vu(post : Posts) : void{
+    let added : boolean = false;
+    //si list vu est vide
+    this.storage.get("vu").then(async (data : Posts[])=>{
+      console.log(data); 
+     if(data === null || data.length === 0){
+       data = [];
+       data.push(post)
+      
+     }
+     else{
+       //si list vu n'est pas vide
+       for(let i = 0 ;i< data.length;i++){
+         const element : Posts =data[i];
+         if(post.id ===element.id){
+           //list vu n'est pas vide et contient l'article
+          
+           
+           added = true;
+         }
+       }
+       if(!added){
+         //list vu n'est pas vide et ne contient pas l'article
+         data.push(post)
+         
+       }
+     }
+     this.storage.set("vu",data)
      
   
      

@@ -4,7 +4,7 @@
       <ion-back-button defaultHref="tabs/tab2"></ion-back-button>
     </ion-buttons>
     <ion-title>      
-       
+    
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -24,7 +24,7 @@
         <span>{{magazine.magazine}}</span>
       </div>
       <div class="app-mag-desc">
-    <p>{{magazine.description}} </p> 
+    <p>{{magazine.description}} {{magazine.prix}} </p> 
     <div class= "app-mag-icon">
     <a (click)="removeMagazine(magazine, i)">
       <ion-icon name="trash-outline"></ion-icon> retirer
@@ -43,7 +43,7 @@
   <footer>
   <div class=app-mag>
    <p>totale : </p> <br/>
-   <p class="prix"> 18.500 TDN </p>
+   <p class="prix">  {{total}} TDN </p>
    
   
    <section class="full-width">

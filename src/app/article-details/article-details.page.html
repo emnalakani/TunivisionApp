@@ -42,7 +42,22 @@
 </div>
 <p>{{post.contenu}}</p>
  </div>
+ <div *ngIf="!listvu; else elseBlock"><button (click)="score(test)"(click)="Vu(post)">
+  <ion-icon name="star-outline"></ion-icon>
+</button></div>
+
+<ng-template #elseBlock>
+  <button (click)="score(test)"(click)="Vu(post)">
+    <ion-icon name="star-outline"></ion-icon>
+  </button>
+
+</ng-template>
 </div> 
+<div class="if" *ngIf="post.typePost.nomtype === 'Publicité'">
+
+<a href="{{post.description}}"><img src="http://tunivisions-group.com/uploads\files\post\{{post.image}}" height="100px" width="20px" ></a>
+</div>
  </div>
+
 
 </ion-content>

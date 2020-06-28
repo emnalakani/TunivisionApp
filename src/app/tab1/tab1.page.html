@@ -59,9 +59,9 @@
 </ion-grid>
 
 <!--lister les articles-->
-<ion-list>
+
   <div class="if" *ngIf="lstposts">
-  <ion-item *ngFor="let data of lstposts.slice().reverse()" >
+  <div *ngFor="let data of lstposts.slice().reverse()" >
     <div class="if" *ngIf="data.categorie.nomCategorie === currentCategorie || currentCategorie ==='all' ">
       <div class="if" *ngIf="data.typePost.nomtype === 'Article'">
 
@@ -88,9 +88,9 @@
   </ion-row>
   </div>
 </div>
-</ion-item>
 </div>
-</ion-list>
+</div>
+
   
   <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
     <ion-infinite-scroll-content

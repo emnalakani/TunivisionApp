@@ -27,11 +27,17 @@ export class PanierPage implements OnInit {
       message: 'magazine retirer',
       duration: 1500
     });toast.present();
+    location.reload();
   }
-
+  total: number=0;
   ionViewDidEnter(){
     this.storage.get('Panier').then((res)=>{
        this.PanierStorage= res;
-    });}
+       for(let i = 0 ;i< this.PanierStorage.length;i++){
+        this.total += this.PanierStorage[i].prix
+     }
+    });
+   
+  }
 
 }

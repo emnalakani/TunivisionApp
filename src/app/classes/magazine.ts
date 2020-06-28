@@ -6,7 +6,7 @@ export class Magazine
     description: string;
     image: string;
     titre: string;
-    
+    prix: number;
      
 
 }

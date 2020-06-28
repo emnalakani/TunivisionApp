@@ -41,6 +41,14 @@ const routes: Routes = [
     path: 'compte',
     loadChildren: () => import('./menu/compte/compte.module').then( m => m.ComptePageModule)
   },
+  {
+    path: 'reclamation',
+    loadChildren: () => import('./menu/reclamation/reclamation.module').then( m => m.ReclamationPageModule)
+  },
+  {
+    path: 'reclamation',
+    loadChildren: () => import('./menu/reclamation/reclamation.module').then( m => m.ReclamationPageModule)
+  },
 
 
 ];
