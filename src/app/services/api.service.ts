@@ -26,6 +26,10 @@ export class ApiService
       getcommandes(): Observable<any> {
            return this.httpclient.get("https://www.tunivisions-group.com/api/commandes.json")
                                      }
-                                               
-
+      getmessages(): Observable<any> {
+             return this.httpclient.get("https://www.tunivisions-group.com/api/messages.json")
+                                       }
+      messages(message : any): Observable<any> {
+                 return this.httpclient.post("https://www.tunivisions-group.com/api/messages.json",message)
+                                            }
 }

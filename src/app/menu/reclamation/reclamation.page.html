@@ -8,13 +8,21 @@
    <ion-grid>
     <ion-row>
       <ion-col size="10" class="input-col">
-        <ion-input  type="text" placeholder="Entrez votre message"></ion-input>
+        <ion-input  type="text" [(ngModel)]="message"placeholder="Entrez votre message"></ion-input>
       </ion-col>
       <ion-col size="2" class="send-col">
-        <ion-button shape="full">
+        <ion-button shape="full" (click)="send()">
           <ion-icon name="paper-plane"></ion-icon>
         </ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
+
+  <div *ngFor="let message of lstmessages">
+    <div *ngIf="message.abonne === abonne">
+        <h1>{{message.messages}}</h1>
+
+       <h1>{{message.reponse}}</h1> 
+    </div>
+  </div>
 </ion-content>
