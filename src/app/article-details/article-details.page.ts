@@ -5,7 +5,10 @@ import { ActivatedRoute } from "@angular/router";
 import { ApiService } from '../services/api.service';
 import {Storage} from '@ionic/storage';
 import {Posts} from '../classes/posts'
-import { NgForOf } from '@angular/common';
+import {Commentaires} from '../classes/commentaires'
+import {Abonnes} from '../classes/abonnes'
+
+
 @Component({
   selector: 'app-article-details',
   templateUrl: './article-details.page.html',
@@ -26,11 +29,17 @@ constructor(private renderer: Renderer2,
 
   ) { }
 
- 
-
+ commentaire :"";
+ abonne="";
+ datastorage :any;
+ post= "";
+ obj: any;
+ lstcommentaires:Commentaires[];
+ nbrcommentaires=0;
+ lstabonnes: Abonnes[];
   ngOnInit() {
     this.id = Number(this.activatedRouter.snapshot.paramMap.get('id'));
-
+     
     
       this._ApiService.getposts()
         .subscribe
@@ -40,7 +49,65 @@ constructor(private renderer: Renderer2,
           this.lstposts = data;
           }
         )
+        this._ApiService.getcommentaires()
+        .subscribe
+        (
+          data=>
+          {
+          this.lstcommentaires = data;
+          for (let i = 0 ;i< this.lstcommentaires.length;i++)
+          {
+            if(this.lstcommentaires[i].post===this.post){
+              this.nbrcommentaires +=1;
+            }
+          }
+          console.log(this.nbrcommentaires);
+          }
+        )
+        if(this.lstcommentaires){
+     for (let i = 0 ;i< this.lstcommentaires.length;i++)
+          {
+            if(this.lstcommentaires[i].post===this.post){
+              this.nbrcommentaires +=1;
+            }
+          }
+          console.log(this.nbrcommentaires);
+        }
 
+        this._ApiService.getabonnes()
+        .subscribe
+        (
+          data=>
+          {
+          this.lstabonnes = data;
+          }
+        )
+  }
+  buttonClicked: boolean = false; 
+   onButtonClick() {
+
+      this.buttonClicked = !this.buttonClicked;
+  }
+
+  async send(){
+    
+
+  let patched = {
+    username : this.abonne,
+   post : this.post ,
+   contenu : this.commentaire
+    
+  }
+  console.log(patched);
+  this._ApiService.commentaires(patched)
+  .subscribe
+ ( data=>
+  {
+    this.obj=data;
+      console.log(this.obj);
+
+  })
+  this.commentaire="";
   }
 
 
@@ -97,7 +164,12 @@ constructor(private renderer: Renderer2,
       console.log(res);
       this.test=res;
     });
-   
+    this.storage.get('storage_xxx').then((res)=>{
+      this.datastorage= res;
+     this.abonne =("/api/abonnes/"+this.datastorage.id);
+     console.log(this.abonne);
+    });
+    this.post=("/api/posts/"+this.id);
   
   }
  test : number;

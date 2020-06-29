@@ -29,7 +29,16 @@ export class ApiService
       getmessages(): Observable<any> {
              return this.httpclient.get("https://www.tunivisions-group.com/api/messages.json")
                                        }
+       getcommentaires(): Observable<any> {
+              return this.httpclient.get("https://www.tunivisions-group.com/api/commentaires.json")
+                               }
+      getabonnes(): Observable<any> {
+                 return this.httpclient.get("https://www.tunivisions-group.com/api/abonnes.json")
+                                         }
       messages(message : any): Observable<any> {
                  return this.httpclient.post("https://www.tunivisions-group.com/api/messages.json",message)
                                             }
+      commentaires(commentaire : any): Observable<any> {
+           return this.httpclient.post("https://www.tunivisions-group.com/api/commentaires.json",commentaire)
+                                  }
 }
