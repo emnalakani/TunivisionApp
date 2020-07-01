@@ -49,6 +49,10 @@ const routes: Routes = [
     path: 'reclamation',
     loadChildren: () => import('./menu/reclamation/reclamation.module').then( m => m.ReclamationPageModule)
   },
+  {
+    path: 'parainnage',
+    loadChildren: () => import('./menu/parainnage/parainnage.module').then( m => m.ParainnagePageModule)
+  },
 
 
 ];

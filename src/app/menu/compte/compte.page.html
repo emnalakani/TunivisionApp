@@ -1,9 +1,36 @@
-<ion-header>
+
+<ion-header translucent no-border>
   <ion-toolbar>
-    <ion-title>compte</ion-title>
+   
+    
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="tabs/tab1"></ion-back-button>
+      </ion-buttons>
+      <ion-title>      
+      Mon compte
+      </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen="true" slot="fixed" >
+  
+<div class="card">
+  <div class="header">
+    <div class="avatar">
+      <img src="/assets/images/profile.jpg" alt="">
+    </div>
+  </div>
+</div>
+<div class="card-body">
+  <div class="user-meta ion-text-center">
+    <div *ngIf="datastorage">
+    <h3 class="playername">{{datastorage.username}}</h3>
+    <h4 class="mail">{{datastorage.mail}} </h4>
+    <h6 class="ranking">Cadeau Points: <ion-chip class="score">
+      <ion-label>{{score}}</ion-label>
+      </ion-chip>
+    </h6></div>
+  </div>
 
-</ion-content>
+</div>
+</ion-content>  

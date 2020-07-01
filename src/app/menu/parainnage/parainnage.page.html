@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="primary" >
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/tab1"></ion-back-button>
+    </ion-buttons>
+    <ion-title>      
+    
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col>
+      <div *ngIf="datastorage">
+   Votre code de parainnage : {{datastorage.codeparainnage}}
+  </div>
+    </ion-col>
+    <ion-col size="10" class="input-col">
+      <ion-input  type="text" [(ngModel)]="codeparainnage"placeholder="Parrainée par"></ion-input>
+    </ion-col>
+    <ion-col size="2" class="send-col">
+      <ion-button shape="full" (click)="send()" >
+        <ion-icon name="paper-plane"></ion-icon>
+      </ion-button>
+    </ion-col>
+      </ion-row>
+</ion-content>

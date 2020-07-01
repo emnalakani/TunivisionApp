@@ -17,6 +17,7 @@ naissance : string = "" ;
 password : string = "";
 confirm_pass : string = "";
 disabledButton ;
+codeparainnage = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
   constructor(private router: Router,
   private toastCtrl :ToastController,
   private loadingCtrl : LoadingController,
@@ -61,8 +62,8 @@ this.presentToast("Entrez votre nom");
         username: this.username,
         mail : this.mail,
         naissance : this.naissance,
-        password : this.password
-       
+        password : this.password,
+        codeparainnage: this.codeparainnage
         }
       this. accsPrvds.postData(body, 'proses_api.php').subscribe((res:any)=>{
         if(res.success==true){

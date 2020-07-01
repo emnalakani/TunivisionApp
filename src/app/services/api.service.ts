@@ -9,7 +9,7 @@ export class ApiService
 
 
     getposts(): Observable<any> {
-        return this.httpclient.get("https://www.tunivisions-group.com/api/posts.json")
+        return this.httpclient.get("http://localhost/api/posts.json")
     }
     getvideos(): Observable<any> {
         return this.httpclient.get("https://api.dailymotion.com/user/tunivisions/videos?fields=id%2Ctitle%2Cembed_url%2Cviews_total%2Clikes_total")
@@ -18,27 +18,27 @@ export class ApiService
         return this.httpclient.get("https://api.dailymotion.com/user/cnews/videos?fields=embed_url&page=1&limit=1&flags=live")
                     }
     getmagazines(): Observable<any> {
-        return this.httpclient.get("https://www.tunivisions-group.com/api/magazines.json")
+        return this.httpclient.get("http://localhost/api/magazines.json")
                       }
     getannees(): Observable<any> {
-        return this.httpclient.get("https://www.tunivisions-group.com/api/annees.json")
+        return this.httpclient.get("http://localhost/api/annees.json")
                             }
       getcommandes(): Observable<any> {
-           return this.httpclient.get("https://www.tunivisions-group.com/api/commandes.json")
+           return this.httpclient.get("http://localhost/api/commandes.json")
                                      }
       getmessages(): Observable<any> {
-             return this.httpclient.get("https://www.tunivisions-group.com/api/messages.json")
+             return this.httpclient.get("http://localhost/api/messages.json")
                                        }
        getcommentaires(): Observable<any> {
-              return this.httpclient.get("https://www.tunivisions-group.com/api/commentaires.json")
+              return this.httpclient.get("http://localhost/api/commentaires.json")
                                }
       getabonnes(): Observable<any> {
-                 return this.httpclient.get("https://www.tunivisions-group.com/api/abonnes.json")
+                 return this.httpclient.get("http://localhost/api/abonnes.json")
                                          }
       messages(message : any): Observable<any> {
-                 return this.httpclient.post("https://www.tunivisions-group.com/api/messages.json",message)
+                 return this.httpclient.post("http://localhost/api/messages.json",message)
                                             }
       commentaires(commentaire : any): Observable<any> {
-           return this.httpclient.post("https://www.tunivisions-group.com/api/commentaires.json",commentaire)
+           return this.httpclient.post("http://localhost/api/commentaires.json",commentaire)
                                   }
 }
