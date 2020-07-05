@@ -61,11 +61,19 @@ export class MagazinePage implements OnInit {
      this.storage.set("Panier",data)
     })
   }
-
+  datastorage : any;
+  test : any;
+  typeabonnement ={
+    abonnement:["3"]
+  };
   ionViewDidEnter(){
     this.storage.get('Panier').then((res)=>{
       console.log(res);  
       
+    });
+    this.storage.get('storage_xxx').then((res)=>{
+      this.datastorage= res;
+    
     });
   }
 
@@ -78,5 +86,21 @@ export class MagazinePage implements OnInit {
       alert(JSON.stringify(err));
     })
   }
+   
+   abonnement(abonne,id){
+    if(this.datastorage.abonnement == "[]")
+  {
+      this._ApiService.abonnement(this.typeabonnement,this.datastorage.id)
+    .subscribe
+   ( data=>
+    {
+      this.test=data;
+      console.log(this.test);
 
+  
+    })
+  }
+   }
+
+ 
 }

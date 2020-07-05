@@ -15,6 +15,16 @@ export class PanierPage implements OnInit {
     private toastCtrl :ToastController,
     ) { }
 
+
+    NumSite = 'tunivisions';
+    Password = 'laknf';
+    Amount = '1250';
+    Devise = 'TND';
+    orderId = '2015-02-16';
+    signture = this.NumSite + this.Password+this.orderId+this.Amount+ this.Devise
+
+
+
   ngOnInit() {
 
   
@@ -37,7 +47,7 @@ export class PanierPage implements OnInit {
         this.total += this.PanierStorage[i].prix
      }
     });
-   
+   console.log(this.signture);  
   }
 
 }

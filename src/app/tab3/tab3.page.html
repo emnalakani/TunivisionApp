@@ -35,25 +35,40 @@
     </ion-card-header>
     <ion-card-content >
           {{data.title}}
-        <ion-item-divider>
-          <ion-label>  
-         
+       
+      </ion-card-content>
       <ion-row>
-          <ion-col>
-           <ion-button fill="clear">
-          <ion-icon name="heart-outline" color="medium"></ion-icon> j'aime
-        </ion-button>
-          </ion-col>
-          <ion-col>
-           <ion-button fill="clear" ><ion-icon name="chatbox-outline" color="medium"></ion-icon> Commenter</ion-button>
+        <div  (click)="onButtonClick(data.id)"> Commentaires</div> <br><br>
+        <div *ngIf="buttonClicked && video==data.id" >
+          <div *ngFor="let commentaire of lstcommentaires">
+            <div *ngIf="commentaire.post ===data.id ">
+            <ion-row>
+              <ion-col>
+              <div *ngFor="let abonne of lstabonnes">
+                <div *ngIf="abonne.id == commentaire.abonne">
+                {{abonne.username}}</div>
+              </div>
+              </ion-col>
+              <ion-col>  {{commentaire.contenu}}
+                </ion-col>
+                </ion-row>
+          </div>
+        </div>
+        </div>
 
-          </ion-col>
+        <ion-col size="10" class="input-col">
+          <ion-input  type="text" [(ngModel)]="commentaire"placeholder="Entrez votre commentaire" ></ion-input>
+        </ion-col>
+        <ion-col size="2" class="send-col">
+          <ion-button shape="full" (click)="send(data.id)">
+            <ion-icon name="paper-plane"></ion-icon>
+          </ion-button>
+        </ion-col>
+        
         
         </ion-row>
-      </ion-label>
-    </ion-item-divider>
-      </ion-card-content>
   </ion-card>
+
 </ion-item>
 </ion-list>
 </ion-content>

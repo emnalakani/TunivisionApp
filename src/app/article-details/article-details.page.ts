@@ -90,9 +90,9 @@ constructor(private renderer: Renderer2,
   }
 
   async send(){
-    
-
-  let patched = {
+    if(this.datastorage)
+{if(this.commentaire)
+  {let patched = {
     username : this.abonne,
    post : this.post ,
    contenu : this.commentaire
@@ -107,7 +107,10 @@ constructor(private renderer: Renderer2,
       console.log(this.obj);
 
   })
-  this.commentaire="";
+  this.commentaire="";}} else{ const toast =  await this.toastCtrl.create({
+    message: 'connecter vous pour commenter',
+    duration: 1500
+  });toast.present();}
   }
 
 
@@ -195,6 +198,24 @@ this.seen = true;
      
     })
   }
+  }
+
+  
+
+  reaction(reaction:number , id :number){
+
+   var reactions ={ 
+     reactions : reaction+1
+    };
+    this._ApiService.reaction(reactions,id)
+    .subscribe
+   ( data=>
+    {
+      
+      console.log(data);
+
+  
+    })
   }
 
   Vu(post : Posts) : void{

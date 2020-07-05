@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IonSlides } from '@ionic/angular';
+import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser/ngx';
 
 @Component({
   selector: 'app-tab5',
@@ -7,31 +7,21 @@ import { IonSlides } from '@ionic/angular';
   styleUrls: ['./tab5.page.scss'],
 })
 export class Tab5Page implements OnInit {
-  sliderConfig = {
-  spaceBetween: 2,
-  
-  slidesPerView: 3
 
-}
-  selectedSlide:any;
-segment = 0 ;
-sliderOptions= {
-intialSlide: 0,
-slidesPerview: 1,
-speed: 400  
-}
-  constructor() { }
+ticket : boolean = false;
+  constructor(private browser:InAppBrowser) { }
 
+  OpenTicket(){
+    var url="https://tunivisionsticket.net/"
+    var option: InAppBrowserOptions={
+      zoom:'yes'
+    }
+    this.browser.create(url,'_blank',option)
+  }
   ngOnInit() {
   }
-async segmentChanged(ev){
-  await this. selectedSlide.slideTo(this.segment);
-}
-async  slideShanged(slides : IonSlides){
-this.selectedSlide= slides;
-slides.getActiveIndex().then(selectedIndex =>{
-  this.segment = selectedIndex; 
-})
 
+getticket(){
+  this.ticket = true;
 }
 }

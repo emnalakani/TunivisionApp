@@ -5,7 +5,8 @@ import {Live} from '../classes/live'
 import { ToastController, LoadingController, AlertController, NavController} from '@ionic/angular'
 import {DomSanitizer} from '@angular/platform-browser'
 import {Storage} from '@ionic/storage';
-
+import {Commentaires} from '../classes/commentaires'
+import {Abonnes} from '../classes/abonnes'
 @Component({
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
@@ -26,7 +27,9 @@ export class Tab3Page {
     
     lstvideos: Videos[];
     live: Live;
-
+    lstcommentaires:Commentaires[];
+    nbrcommentaires=0;
+    lstabonnes: Abonnes[];
     ngOnInit() {
 
       this._ApiService.getlive()
@@ -47,6 +50,51 @@ export class Tab3Page {
         }
       )
 
+      this._ApiService.gcommentairesvid()
+      .subscribe
+      (
+        data=>
+        {
+        this.lstcommentaires = data;       
+        }
+      )
+      this._ApiService.getabonnes()
+      .subscribe
+      (
+        data=>
+        {
+        this.lstabonnes = data;
+        }
+      )
+}
+commentaire = "";
+buttonClicked: boolean = false; 
+video  ="";
+onButtonClick(id :any) {
+  this.video = id;
+  this.buttonClicked = !this.buttonClicked;
+}
+async send(id:any){
+  if(this.datastorage)
+{if(this.commentaire)
+{let patched = {
+  contenu : this.commentaire,
+ post : id,
+ abonne : this.datastorage.id
+  
+}
+console.log(patched);
+this._ApiService.commentairesvid(patched)
+.subscribe
+( data=>
+{
+    console.log(data);
+
+})
+this.commentaire="";}} else{ const toast =  await this.toastCtrl.create({
+  message: 'connecter vous pour commenter',
+  duration: 1500
+});toast.present();}
 }
 
 addPlusTardVideo(video : Videos) : void{
@@ -99,5 +147,15 @@ getEmbedUrl(data){
 getliveUrl(live){
   return this.sanitizer.bypassSecurityTrustResourceUrl(live.embed_url)
 }
+datastorage : any;
+ionViewDidEnter(){
+    
+  
+  this.storage.get('storage_xxx').then((res)=>{
+    this.datastorage= res;
+  
+  });
+  
 
+}
 }

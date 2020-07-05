@@ -15,20 +15,7 @@
   <!--Slidetoolbar-->
   
    
-<ion-segment mod="md" [(ngModel)]="segment" (ionChange)="segmentChanged($event)">
-  <ion-segment-button value="0">
-    Art&Théatre
-  </ion-segment-button>
-  <ion-segment-button value="1">
-    Festivale
-  </ion-segment-button>
-  <ion-segment-button value="2">
-    Musique 
-  </ion-segment-button>
-  <ion-segment-button value="3">
-    Tounes Bet
-  </ion-segment-button>
-</ion-segment>  
+
 
 
 
@@ -38,68 +25,70 @@
   <ion-slides class="souslid" pager="false" [options]="sliderOptions">    
     <ion-slide > 
       
-    <div class="imgSlide1"></div>
+    <div class="imgSlide1">
+    
+      <img src="assets/images/cd814be236e27c2ec61bd938573149da702c1048_slider.jpg">
+    </div>
     </ion-slide>
     <ion-slide > 
-      <div class="imgSlide2"></div>
+      <div class="imgSlide2">      <img src="assets/images/8d3244f7c107b7d18c15ed009e2d632c3be442f4_sabry-slider.jpg">
+      </div>
 
       </ion-slide >
       <ion-slide> 
       
-        <div class="imgSlide3"></div>
+        <div class="imgSlide3">      <img src="assets/images/ab3423c4c018d0bdbfd3195431c71d1ec08a3fa5_wajiha-slider.jpg">
+        </div>
 
         </ion-slide>
         <ion-slide > 
       
-          <div class="imgSlide4"></div>
+          <div class="imgSlide4">      <img src="assets/images/b89e1094a4b0d8a5218883070c150c9d4d273dc9_zied.jpg">
+          </div>
 
           </ion-slide>
           <ion-slide> 
       
-            <div class="imgSlide5"></div>
+            <div class="imgSlide5">      <img src="assets/images/356cbc1eccc87a8cc31544accbd0fb2982feb6d8_slider-manel.jpg">
+            </div>
 
             </ion-slide>
    </ion-slides>
-
-<ion-slides #slides pager="false" [options]="sliderOptions" (ionSlidesChange)="slideShanged(slides)"(ionSlideDidChange)="slideShanged(slides)"(ionSlidesDidLoad)="slideShanged(slides)">
-
- <ion-slide class="test">
- <ion-grid>
-  <div class="container">
-    <div class="ul">
-   <ion-row>
-     <ion-col>
-      <h4>2020</h4>
-      <ion-slides [options]="sliderConfig">
-        <ion-slide>
-      <p>jgfuih</p></ion-slide>
-      <ion-slide>
-        <p>cbvjgfuih</p></ion-slide>
-        <ion-slide>
-          <p>cbvjgfuih</p></ion-slide>
-          <ion-slide>
-            <p>cbvjgfuih</p></ion-slide>
-    </ion-slides>
-     </ion-col>
-   
-   </ion-row>
-   <ion-col>  <h4>2020</h4>
-    </ion-col>
-   <ion-row>
-     <ion-col>  <h4>2020</h4>
-      
-     </ion-col>
-   </ion-row>
-    </div>
-  </div>
- </ion-grid>
-   </ion-slide>
-
-  <ion-slide>wbdiuhvuih ibuihvcwbv ci</ion-slide>
-  <ion-slide>3></ion-slide>
-  <ion-slide>4</ion-slide>
+<ion-segment mod="md" >
+  <ion-segment-button value="0">
+    Art&Théatre
+  </ion-segment-button>
+  <ion-segment-button value="1">
+    Festivale
+  </ion-segment-button>
+  <ion-segment-button value="2" (click)="getticket()">
+    Musique 
+  </ion-segment-button>
+  <ion-segment-button value="3">
+    Tounes Bet
+  </ion-segment-button>
+</ion-segment>  
+<ion-slides >
 
 </ion-slides>
+<!-- <div *ngIf="ticket"> -->
+  <div class="container">
+    <div class="box" (click)="OpenTicket()">
+      <div class="imgBx">
+      <img  src="assets/images/le-micro-d-or-concours-de-chant-organise-par-conservatoire-lina.jpg"/>
+      <div class="category"><p>NOUVEAU</p></div>
+    </div>
+      <div class="content">
+      <h3>LE MICRO D'OR   30,000 TND</h3>
+    
+      <p>
+       
+        : CONCOURS DE CHANT ORGANISÉ PAR CONSERVATOIRE LINA
+      </p>
+    </div>
+    <!-- </div> -->
+    </div>
+</div>
 
 </ion-content>
 

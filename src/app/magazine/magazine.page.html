@@ -13,7 +13,7 @@
     <div class="if" *ngIf="magazine.id === id" >
   <div class= "content">
     <div class="img">
-<img src="https://www.tunivisions-group.com/uploads\files\magazine\images\{{magazine.thumbnail}}" height="150px">
+<img src="http://localhost/uploads\files\magazine\images\{{magazine.thumbnail}}" height="150px">
 <h3>{{magazine.magazine}}</h3>
 
 <ion-button color="dark" size="large" (click)="addToPanier(magazine)">acheter - <br/> {{magazine.prix}} TDN</ion-button><br/>
@@ -27,7 +27,7 @@
   <ion-button expand="outline" color="dark"class="but"><ion-icon name="list-outline"slot="start"></ion-icon >sommaire</ion-button>
     <ion-button expand="outline" color="dark"class="but2" (click)="PreviewPdfFile(magazine.pdf)">version light</ion-button>
 <div class= "abonnement">
-  abonnement mensuel <ion-button color="dark" >acheter - <br/> 5 TDN</ion-button><br/>
+  abonnement mensuel <ion-button color="dark" (click)="abonnement(abonne)">acheter - <br/> 5 TDN</ion-button><br/>
   abonnement annuel &nbsp; &nbsp;<ion-button color="dark" >acheter - <br/> 5 TDN</ion-button>
 
 </div>

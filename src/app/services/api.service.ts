@@ -41,4 +41,18 @@ export class ApiService
       commentaires(commentaire : any): Observable<any> {
            return this.httpclient.post("http://localhost/api/commentaires.json",commentaire)
                                   }
+
+     abonnement(abonne : any,id :number): Observable<any> {
+         return this.httpclient.put("http://localhost/api/abonnes/"+id+".json",abonne)
+     }
+     reaction(post : any, id :number): Observable<any> {
+        return this.httpclient.put("http://localhost/api/posts/"+id+".json",post)
+    }
+
+    commentairesvid(commentaire : any): Observable<any> {
+        return this.httpclient.post("http://localhost/api/commentairevids.json",commentaire)
+    }
+    gcommentairesvid( ): Observable<any> {
+        return this.httpclient.get("http://localhost/api/commentairevids.json")
+    }
 }

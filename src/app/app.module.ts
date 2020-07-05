@@ -14,6 +14,8 @@ import { ApiService } from './services/api.service';
 import { IonicStorageModule } from '@ionic/storage';
 import { AccessProviders } from './providers/access-providers';
 import { PreviewAnyFile } from '@ionic-native/preview-any-file/ngx';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+
 @NgModule({
   declarations: [AppComponent, AutoHideDirective],
   entryComponents: [],
@@ -23,6 +25,7 @@ import { PreviewAnyFile } from '@ionic-native/preview-any-file/ngx';
     SplashScreen,
     ApiService,
     AccessProviders,
+    InAppBrowser,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     PreviewAnyFile
 

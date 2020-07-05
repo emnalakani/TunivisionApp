@@ -48,10 +48,21 @@ export class Tab1Page {
         }
       )
 
+
+
+      if(this.vu){
+        for(let i = 0 ;i< this.vu.length;i++){
+           if(this.vu[i].categorie == 'Politique' ){ this.Politique +=1;}
+           else if(this.vu[i].categorie == 'People'){ this.People +=1;}
+        }
+      }
+
+      console.log(this.Politique ,this.People)
+
 }
 
-
-
+Politique : number;
+People : number;
 
 addToPanier(magazine : Magazine) : void{
   let added : boolean = false;
@@ -99,5 +110,26 @@ changeCategory(categorie){
   this.currentCategorie = categorie;
   console.log(this.currentCategorie);
 }
+
+vu : any;
+ionViewDidEnter(){
+  this.storage.get('vu').then((res)=>{
+    this.vu = res;
+    console.log(this.vu);  
+
+  });
+
+  if(this.vu){
+    for(let i = 0 ;i< this.vu.length;i++){
+       if(this.vu[i].categorie == 'Politique' ){ this.Politique +=1;}
+       else if(this.vu[i].categorie == 'People'){ this.People +=1;}
+    }
+    console.log(this.Politique ,this.People)
+  }
+
+ 
+}
+
+
 
 }

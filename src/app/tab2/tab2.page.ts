@@ -42,7 +42,7 @@ sliderConfig = {
     (
       data=>
       {
-      this.lstannees = data;
+      this.lstannees = data.slice().reverse();
       }
     )
 

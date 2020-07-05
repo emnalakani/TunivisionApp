@@ -1,13 +1,25 @@
 
 ion-content{
     --padding-top	:70px;
-   
 
   }
-.contenu{
-    width: 50%;
-    height:100%;
-    
-  
 
+.contenu{
+  position: relative;
+  font-size: 10px;
+  
+  height: 100%;
+
+  min-width: 17.7rem;
+  max-width: 98rem;
+  background-color:#000000 ;
+
+  box-shadow: 0 0.5rem 0.7rem rgba(226, 57, 57, 0.37);
+  display: flex;
+  border-radius: 8px;
+}
+.contenu .elfsight-app-7b4b22aa-b23d-4696-9c72-6e6a5304538c{
+  
+  height: 100%;
+  width: 100%;
 }
