@@ -7,6 +7,7 @@ import {Storage} from '@ionic/storage';
 import {Posts} from '../classes/posts'
 import {Commentaires} from '../classes/commentaires'
 import {Abonnes} from '../classes/abonnes'
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
 
 @Component({
@@ -26,6 +27,7 @@ constructor(private renderer: Renderer2,
   private storage: Storage,
   public navCtrl: NavController,
   private toastCtrl :ToastController,
+  private socialSharing : SocialSharing,
 
   ) { }
 
@@ -83,6 +85,18 @@ constructor(private renderer: Renderer2,
           }
         )
   }
+
+
+sShare(article : any){
+  var options = {
+    message: article.discription,
+    url: 'https://tunivisions.net/',
+  };
+  this.socialSharing.shareWithOptions(options);
+}
+
+
+
   buttonClicked: boolean = false; 
    onButtonClick() {
 

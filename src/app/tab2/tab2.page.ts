@@ -4,6 +4,7 @@ import {Magazine} from '../classes/magazine'
 import {Annee} from '../classes/annee'
 import {Storage} from '@ionic/storage';
 import { ToastController, LoadingController, AlertController, NavController} from '@ionic/angular'
+import {Commande} from '../classes/commande'
 
 @Component({
   selector: 'app-tab2',
@@ -24,6 +25,7 @@ sliderConfig = {
 
   
    ) {}
+   lstcommandes: Commande[];
 
    lstmagazines: Magazine[];
    lstannees: Annee[];
@@ -45,14 +47,30 @@ sliderConfig = {
       this.lstannees = data.slice().reverse();
       }
     )
-
+    this._ApiService.getcommandes()
+    .subscribe
+    (
+      data=>
+      {
+      this.lstcommandes = data;
+      }
+    )
 
 }
 
-addToPanier(magazine : Magazine) : void{
+  async addToPanier(magazine : Magazine) : Promise<void>{
   let added : boolean = false;
+  let purchased : boolean = false;
   //si le panier est vide
-  this.storage.get("Panier").then(async (data : Magazine[])=>{
+  if(this.lstcommandes)
+ { for(let i = 0 ;i< this.lstcommandes.length;i++)
+  {
+    if(magazine.magazine==this.lstcommandes[i].magazine){
+      purchased=true;
+    }
+  }
+}
+if(!purchased) { this.storage.get("Panier").then(async (data : Magazine[])=>{
    if(data === null || data.length === 0){
      data = [];
      data.push(magazine)
@@ -88,7 +106,10 @@ addToPanier(magazine : Magazine) : void{
    
 
    
-  })
+  })}else{ const toast =  await this.toastCtrl.create({
+    message: 'vous avez deja cette magazine',
+    duration: 1500
+  });toast.present();}
 }
 
 ionViewDidEnter(){

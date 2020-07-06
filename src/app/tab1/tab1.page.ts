@@ -6,6 +6,7 @@ import { ToastController, LoadingController, AlertController, NavController} fro
 import { AccessProviders } from '../providers/access-providers';
 import {Storage} from '@ionic/storage';
 import {Magazine} from '../classes/magazine'
+import {Commande} from '../classes/commande'
 
 @Component({
   selector: 'app-tab1',
@@ -27,7 +28,8 @@ export class Tab1Page {
   onCategoryChange(category){
     // console.log(category.detail.value); 
   }
-    
+  lstcommandes: Commande[];
+
     lstposts: Posts[];
     ngOnInit() {
       this._ApiService.getposts()
@@ -59,15 +61,35 @@ export class Tab1Page {
 
       console.log(this.Politique ,this.People)
 
+
+      this._ApiService.getcommandes()
+      .subscribe
+      (
+        data=>
+        {
+        this.lstcommandes = data;
+        }
+      )
 }
 
 Politique : number;
 People : number;
 
-addToPanier(magazine : Magazine) : void{
+  async addToPanier(magazine : Magazine) : Promise<void>{
   let added : boolean = false;
+
+  let purchased : boolean = false;
   //si le panier est vide
-  this.storage.get("Panier").then(async (data : Magazine[])=>{
+  if(this.lstcommandes)
+ { for(let i = 0 ;i< this.lstcommandes.length;i++)
+  {
+    if(magazine.magazine==this.lstcommandes[i].magazine){
+      purchased=true;
+    }
+  }
+}
+  //si le panier est vide
+  if(!purchased) { this.storage.get("Panier").then(async (data : Magazine[])=>{
    if(data === null || data.length === 0){
      data = [];
      data.push(magazine)
@@ -103,7 +125,10 @@ addToPanier(magazine : Magazine) : void{
    
 
    
-  })
+  })}else{ const toast =  await this.toastCtrl.create({
+    message: 'vous avez deja cette magazine',
+    duration: 1500
+  });toast.present();}
 }
 currentCategorie = "all"
 changeCategory(categorie){

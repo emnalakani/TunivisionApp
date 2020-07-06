@@ -27,7 +27,7 @@ ion-toolbar {
                 border-radius: 50%;
                 position: absolute;
                 bottom: calc(-1*(80px + 4px));
-                border: 8px solid #9Dc912;
+                border: 8px solid #DC274C;
                 background-color: #fff;
             }
         }
@@ -35,7 +35,7 @@ ion-toolbar {
 }
 
 .card-body {
-    background-color: #dc274b8a;
+    background-color: #dc274b56;
     padding: 30px;
     height: calc(100vh - (200px + 56px));
     overflow: hidden;
@@ -44,6 +44,7 @@ ion-toolbar {
         padding-top: 40px;
 
         .playername {
+
             font-size: 24px;
             font-weight: 600;
             color: #ffffff;

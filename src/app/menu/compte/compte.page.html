@@ -13,7 +13,7 @@
 </ion-header>
 
 <ion-content fullscreen="true" slot="fixed" >
-  
+  <div *ngIf="!buttonClicked">
 <div class="card">
   <div class="header">
     <div class="avatar">
@@ -25,12 +25,55 @@
   <div class="user-meta ion-text-center">
     <div *ngIf="datastorage">
     <h3 class="playername">{{datastorage.username}}</h3>
-    <h4 class="mail">{{datastorage.mail}} </h4>
+  
     <h6 class="ranking">Cadeau Points: <ion-chip class="score">
       <ion-label>{{score}}</ion-label>
       </ion-chip>
-    </h6></div>
+    </h6>
+    <h4 class="mail">{{datastorage.mail}} </h4>
   </div>
-
+  <ion-col>
+    <ion-button fill="clear" (click)="onButtonClick()">changer vos informations</ion-button>
+ 
+   </ion-col>
+ 
+  </div>
 </div>
+</div> <div *ngIf="buttonClicked">
+  <ion-col>
+    <ion-button fill="clear" (click)="onButtonClick()">les conserver</ion-button>
+ 
+   </ion-col>
+  <ion-list class="form">
+    <ion-item >
+    
+      <ion-label position="floating" ><ion-icon name="person-outline"  ></ion-icon>&nbsp;&nbsp; {{datastorage.username}}</ion-label>
+      <ion-input type="text" [(ngModel)]="username"></ion-input>
+     </ion-item> 
+     <ion-item >  
+      <ion-label position="floating"><ion-icon name="at-outline"></ion-icon>&nbsp;&nbsp;{{datastorage.mail}}</ion-label>
+      <ion-input type="text" [(ngModel)]="mail" ></ion-input>
+     </ion-item> 
+     <ion-item >
+    
+    <ion-label position="floating"><ion-icon name="calendar-outline"></ion-icon>&nbsp;&nbsp; {{datastorage.naissance}} </ion-label>
+    <ion-datetime value="Date de naissance " display-timezone="utc" [(ngModel)]="naissance" min="1930" max="2010" ></ion-datetime>
+    
+    </ion-item> 
+     <ion-item >
+      <ion-label position="floating"><ion-icon name="lock-open-outline"></ion-icon>&nbsp;&nbsp;Mot de passe </ion-label>
+      <ion-input type="password " [(ngModel)]="password" minlength="6"  maxlength="12" ></ion-input>
+     </ion-item>  
+     <ion-item >
+     <ion-label position="floating"><ion-icon name="lock-closed-outline"></ion-icon>&nbsp;&nbsp; Confirmer le mot de passe</ion-label>
+     <ion-input type="password " [(ngModel)]="confirm_pass" ></ion-input>
+    </ion-item> 
+    
+    </ion-list>
+    <br/>
+    <br/>
+    
+    
+    <ion-button (click)="reRegister()" [disabled]="disabledButton" > Confirmer </ion-button>
+  </div>
 </ion-content>  

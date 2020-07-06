@@ -36,6 +36,31 @@
 </div>
 <br>
 <ion-button class="app-mag-button" color="primary" >Achetez</ion-button>
+<FORM name="paiment" method="POST" action="https://preprod.gpgcheckout.com/Paiement_test/Validation_paiement.php" >
+  <input type="hidden" name="NumSite" value="{{NumSite}}">
+  <input type="hidden" name="Password" value="{{Password}}">
+  <input type="hidden" name="orderID" value="{{orderId}}">
+  <input type="hidden" name="Amount" value="{{Amount}}">
+  <input type="hidden" name="Currency" value="{{Devise}}">
+  <input type="hidden" name="Language" value="fr">
+  <input type="hidden" name="EMAIL" value="contact@gpgcheckout.com">
+  <input type="hidden" name="CustLastName" value="nom">
+  <input type="hidden" name="CustFirstName" value="prenom">
+  <input type="hidden" name="CustAddress" value="ariana">
+  <input type="hidden" name="CustZIP" value="2080">
+  <input type="hidden" name="CustCity" value="ariana">
+  <input type="hidden" name="CustCountry" value="tunisie">
+  <input type="hidden" name="CustTel" value="26547852">
+  <input type="hidden" name="PayementType" value="1">
+  <input type="hidden" name="orderProducts" value="{{PanierStorage}}">
+  <input type="hidden" name="signature" value="{{signture}}">
+  <input type="hidden" name="AmountSecond" value="25">
+  <input type="hidden" name="vad" value="345566666">
+  <input type="hidden" name="Terminal" value="002">
+  
+  <input type="submit" name= "Valider" value="Valider" >
+  
+  </FORM>
   </div>
   </div>
 </div>

@@ -6,11 +6,7 @@
     <ion-title>      
       lire plus tard
     </ion-title>
-    <ion-buttons slot="end">
-      <ion-button [routerLink]="['/panier']">
-        <ion-icon name="cart-outline"></ion-icon>      
-      </ion-button>
-    </ion-buttons>
+    
   </ion-toolbar>
 </ion-header>
 
@@ -46,7 +42,7 @@
       </div>
       </div>
       <a (click)="removeArticle(data, i)">
-        <ion-icon name="trash-outline"></ion-icon> retirer
+        <ion-icon name="trash-outline"></ion-icon>
       </a> 
       </div>
       </ion-col>
@@ -65,26 +61,15 @@
       </ion-card-header>
       <ion-card-content >
             {{video.title}}
-          <ion-item-divider>
-            <ion-label>  
-           
-        <ion-row>
-            <ion-col>
-             <ion-button fill="clear">
-            <ion-icon name="heart-outline" color="medium"></ion-icon> j'aime
-          </ion-button>
-            </ion-col>
-            <ion-col>
-             <ion-button fill="clear" ><ion-icon name="chatbox-outline" color="medium"></ion-icon> Commenter</ion-button>
-  
-            </ion-col>
-            <ion-col>
-              <a (click)="removeVideo(video, i)">
-                <ion-icon name="trash-outline"></ion-icon> retirer
-              </a>          </ion-col>
-          </ion-row>
-        </ion-label>
-      </ion-item-divider>
+         
+             <ion-row>
+              <ion-col>
+                <a (click)="removeVideo(video, i)">
+                  <ion-icon name="trash-outline"></ion-icon>
+                </a>          </ion-col>
+        
+     </ion-row>
+     
         </ion-card-content>
     </ion-card>
   </ion-item>

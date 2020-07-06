@@ -15,6 +15,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { AccessProviders } from './providers/access-providers';
 import { PreviewAnyFile } from '@ionic-native/preview-any-file/ngx';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
 @NgModule({
   declarations: [AppComponent, AutoHideDirective],
@@ -26,6 +27,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
     ApiService,
     AccessProviders,
     InAppBrowser,
+    SocialSharing,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     PreviewAnyFile
 

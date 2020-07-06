@@ -55,4 +55,8 @@ export class ApiService
     gcommentairesvid( ): Observable<any> {
         return this.httpclient.get("http://localhost/api/commentairevids.json")
     }
+
+    modifabonne(abonne : any, id :number): Observable<any> {
+        return this.httpclient.put("http://localhost/api/abonnes/"+id+".json",abonne)
+    }
 }
