@@ -4,6 +4,7 @@ import { ApiService } from '../services/api.service';
 import {Magazine} from '../classes/magazine'
 import { PreviewAnyFile } from '@ionic-native/preview-any-file/ngx';
 import {Storage} from '@ionic/storage';
+import { ToastController, LoadingController, AlertController, NavController} from '@ionic/angular'
 
 @Component({
   selector: 'app-magazine',
@@ -18,6 +19,8 @@ export class MagazinePage implements OnInit {
     private _ApiService: ApiService,
     public previewAnyFile: PreviewAnyFile,
     private storage: Storage,
+    private toastCtrl :ToastController,
+
 
     ) { }
 
@@ -63,9 +66,7 @@ export class MagazinePage implements OnInit {
   }
   datastorage : any;
   test : any;
-  typeabonnement ={
-    abonnement:["3"]
-  };
+  
   ionViewDidEnter(){
     this.storage.get('Panier').then((res)=>{
       console.log(res);  
@@ -87,10 +88,14 @@ export class MagazinePage implements OnInit {
     })
   }
    
-   abonnement(abonne,id){
+   async abonnement(abonne,type){
+     if(this.datastorage)
+  { let typeabonnement ={
+      abonnement:[type]
+    };
     if(this.datastorage.abonnement == "[]")
   {
-      this._ApiService.abonnement(this.typeabonnement,this.datastorage.id)
+      this._ApiService.abonnement(typeabonnement,this.datastorage.id)
     .subscribe
    ( data=>
     {
@@ -99,7 +104,10 @@ export class MagazinePage implements OnInit {
 
   
     })
-  }
+  }}else{const toast =  await this.toastCtrl.create({
+    message: 'connecter',
+    duration: 1500
+  });toast.present();}
    }
 
  

@@ -75,21 +75,19 @@ export class Tab1Page {
 Politique : number;
 People : number;
 
-  async addToPanier(magazine : Magazine) : Promise<void>{
+async addToPanier(magazine : Magazine) : Promise<void>{
   let added : boolean = false;
-
   let purchased : boolean = false;
   //si le panier est vide
   if(this.lstcommandes)
  { for(let i = 0 ;i< this.lstcommandes.length;i++)
   {
-    if(magazine.magazine==this.lstcommandes[i].magazine){
+    if(magazine.magazine==this.lstcommandes[i].magazine && this.datastorage.id == this.lstcommandes[i].abonne){
       purchased=true;
     }
   }
 }
-  //si le panier est vide
-  if(!purchased) { this.storage.get("Panier").then(async (data : Magazine[])=>{
+if(!purchased) { this.storage.get("Panier").then(async (data : Magazine[])=>{
    if(data === null || data.length === 0){
      data = [];
      data.push(magazine)
@@ -151,8 +149,44 @@ ionViewDidEnter(){
     }
     console.log(this.Politique ,this.People)
   }
-
+  this.storage.get('storage_xxx').then((res)=>{
+    this.datastorage= res;
+  });
  
+}
+
+  async valider(magazine)
+{
+  let purchased : boolean = false;
+
+  if(this.lstcommandes)
+  { for(let i = 0 ;i< this.lstcommandes.length;i++)
+   {
+     if(magazine.magazine==this.lstcommandes[i].magazine && this.datastorage.id == this.lstcommandes[i].abonne){
+       purchased=true;
+     }
+   }
+ }
+ if(!purchased)
+{
+  let commande = {
+  abonne : this.datastorage.id.toString() ,
+  magazine : magazine.magazine
+}
+console.log(commande);
+  this._ApiService.commander(commande)
+  .subscribe
+ ( data=>
+  {
+    
+      console.log(data);
+   
+  })
+}else{ const toast =  await this.toastCtrl.create({
+  message: 'vous avez deja cette magazine',
+  duration: 1500
+});toast.present();}
+
 }
 
 

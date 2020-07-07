@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Storage} from '@ionic/storage';
 import { Magazine } from '../classes/magazine';
 import { ToastController, LoadingController, AlertController, NavController} from '@ionic/angular'
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-panier',
@@ -13,9 +14,11 @@ export class PanierPage implements OnInit {
 
   constructor(private storage: Storage,
     private toastCtrl :ToastController,
+    private _ApiService: ApiService,
+
     ) { }
 
-
+    datastorage :any;
     NumSite = 'tunivisions';
     Password = 'laknf';
     Amount = '1250';
@@ -48,6 +51,32 @@ export class PanierPage implements OnInit {
      }
     });
    console.log(this.signture);  
+
+   this.storage.get('storage_xxx').then((res)=>{
+    this.datastorage= res;
+    console.log(this.PanierStorage)
+  });
   }
 
+  valider()
+  {
+    if(this.PanierStorage)
+
+{ for(let i = 0 ;i< this.PanierStorage.length;i++)
+ {  let commande = {
+    abonne : this.datastorage.id.toString() ,
+    magazine : this.PanierStorage[i].magazine
+  }
+  console.log(commande);
+    this._ApiService.commander(commande)
+    .subscribe
+   ( data=>
+    {
+      
+        console.log(data);
+     
+    })}
+  }
+  this.storage.remove("Panier");
+}
 }

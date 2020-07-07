@@ -28,7 +28,7 @@ export class AchatPage implements OnInit {
     (
       data=>
       {
-      this.lstcommandes = data;
+      this.lstcommandes = data.slice().reverse();
       }
     )
     this._ApiService.getmagazines()

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { Command } from 'protractor';
 
 @Injectable()
 export class ApiService
@@ -58,5 +59,8 @@ export class ApiService
 
     modifabonne(abonne : any, id :number): Observable<any> {
         return this.httpclient.put("http://localhost/api/abonnes/"+id+".json",abonne)
+    }
+    commander(commande : any): Observable<any> {
+        return this.httpclient.post("http://localhost/api/commandes.json",commande)
     }
 }

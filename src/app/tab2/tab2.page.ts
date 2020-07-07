@@ -26,7 +26,7 @@ sliderConfig = {
   
    ) {}
    lstcommandes: Commande[];
-
+   datastorage : any ;
    lstmagazines: Magazine[];
    lstannees: Annee[];
    ngOnInit() {
@@ -48,13 +48,15 @@ sliderConfig = {
       }
     )
     this._ApiService.getcommandes()
-    .subscribe
-    (
-      data=>
-      {
-      this.lstcommandes = data;
-      }
-    )
+  .subscribe
+  (
+    data=>
+    {
+    this.lstcommandes = data;
+    console.log(this.lstcommandes)
+
+    }
+  )
 
 }
 
@@ -65,7 +67,7 @@ sliderConfig = {
   if(this.lstcommandes)
  { for(let i = 0 ;i< this.lstcommandes.length;i++)
   {
-    if(magazine.magazine==this.lstcommandes[i].magazine){
+    if(magazine.magazine==this.lstcommandes[i].magazine && this.datastorage.id == this.lstcommandes[i].abonne){
       purchased=true;
     }
   }
@@ -117,6 +119,42 @@ ionViewDidEnter(){
     console.log(res);  
     
   });
+ this.storage.get('storage_xxx').then((res)=>{
+  this.datastorage= res;
+});
 }
 
+async valider(magazine)
+{
+  let purchased : boolean = false;
+
+  if(this.lstcommandes)
+  { for(let i = 0 ;i< this.lstcommandes.length;i++)
+   {
+     if(magazine.magazine==this.lstcommandes[i].magazine && this.datastorage.id == this.lstcommandes[i].abonne){
+       purchased=true;
+     }
+   }
+ }
+ if(!purchased)
+{
+  let commande = {
+  abonne : this.datastorage.id.toString() ,
+  magazine : magazine.magazine
+}
+console.log(commande);
+  this._ApiService.commander(commande)
+  .subscribe
+ ( data=>
+  {
+    
+      console.log(data);
+   
+  })
+}else{ const toast =  await this.toastCtrl.create({
+  message: 'vous avez deja cette magazine',
+  duration: 1500
+});toast.present();}
+
+}
 }
