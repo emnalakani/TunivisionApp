@@ -26,14 +26,16 @@
     <div *ngIf="datastorage">
     <h3 class="playername">{{datastorage.username}}</h3>
   
-    <h6 class="ranking">Cadeau Points: <ion-chip class="score">
+    <h6 class="ranking">Vos poins cadeaux: <ion-chip class="score">
       <ion-label>{{score}}</ion-label>
       </ion-chip>
     </h6>
     <h4 class="mail">{{datastorage.mail}} </h4>
+ <div *ngIf="datastorage.abonnemnet !='[]'"> <h4 class="abonnement"> Vos avez une abonnement de {{datastorage.abonnement}} editions</h4></div>  
   </div>
+  
   <ion-col>
-    <ion-button fill="clear" (click)="onButtonClick()">changer vos informations</ion-button>
+    <div *ngIf="datastorage"><ion-button fill="clear" (click)="onButtonClick()">changer vos informations</ion-button></div>
  
    </ion-col>
  

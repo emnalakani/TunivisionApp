@@ -5,6 +5,7 @@ import {Magazine} from '../classes/magazine'
 import { PreviewAnyFile } from '@ionic-native/preview-any-file/ngx';
 import {Storage} from '@ionic/storage';
 import { ToastController, LoadingController, AlertController, NavController} from '@ionic/angular'
+import {Commande} from '../classes/commande'
 
 @Component({
   selector: 'app-magazine',
@@ -23,6 +24,7 @@ export class MagazinePage implements OnInit {
 
 
     ) { }
+    lstcommandes: Commande[];
 
   ngOnInit() {
     this.id = Number(this.activatedRouter.snapshot.paramMap.get('id'));
@@ -36,6 +38,14 @@ export class MagazinePage implements OnInit {
       }
     )
 
+    this._ApiService.getcommandes()
+    .subscribe
+    (
+      data=>
+      {
+      this.lstcommandes = data;
+      }
+    )
   }
 
   addToPanier(magazine : Magazine) : void{
@@ -90,25 +100,85 @@ export class MagazinePage implements OnInit {
    
    async abonnement(abonne,type){
      if(this.datastorage)
-  { let typeabonnement ={
+  {
+    if(this.datastorage.abonnement == "[]") 
+ {   let typeabonnement ={
       abonnement:[type]
     };
     if(this.datastorage.abonnement == "[]")
   {
       this._ApiService.abonnement(typeabonnement,this.datastorage.id)
     .subscribe
-   ( data=>
+   ( async data=>
     {
       this.test=data;
       console.log(this.test);
-
+   const toast =  await this.toastCtrl.create({
+    message: 'vous avez acheté un abonnement chaque nouveau edition va automatiquement ajouter a votre compte',
+    duration: 1500
+  });toast.present();
   
     })
-  }}else{const toast =  await this.toastCtrl.create({
-    message: 'connecter',
+  }
+  this._ApiService.getabonne(this.datastorage.id)
+    .subscribe
+    (
+      data=>
+      {
+      this.datastorage = data;
+      this.storage.set('storage_xxx',this.datastorage);
+
+      }
+    )
+
+}else{const toast =  await this.toastCtrl.create({
+    message: 'vous avez deja une abonnement  ',
     duration: 1500
   });toast.present();}
+}else{const toast =  await this.toastCtrl.create({
+    message: 'connecter vous',
+    duration: 1500
+  });toast.present();}
+
+
    }
 
- 
+   async valider(magazine)
+{
+  if (this.datastorage)
+{  let purchased : boolean = false;
+
+  if(this.lstcommandes)
+  { for(let i = 0 ;i< this.lstcommandes.length;i++)
+   {
+     if(magazine.magazine==this.lstcommandes[i].magazine && this.datastorage.id == this.lstcommandes[i].abonne){
+       purchased=true;
+     }
+   }
+ }
+ if(!purchased)
+{
+  let commande = {
+  abonne : this.datastorage.id.toString() ,
+  magazine : magazine.magazine
+}
+console.log(commande);
+  this._ApiService.commander(commande)
+  .subscribe
+ ( data=>
+  {
+    
+      console.log(data);
+   
+  })
+}else{ const toast =  await this.toastCtrl.create({
+  message: 'vous avez deja cette magazine',
+  duration: 1500
+});toast.present();}
+}else{const toast =  await this.toastCtrl.create({
+  message: 'connecter vous',
+  duration: 1500
+});toast.present();
+}
+}
 }

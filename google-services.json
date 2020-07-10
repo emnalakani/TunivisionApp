@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "188524378665",
+    "firebase_url": "https://onesignal-7c137.firebaseio.com",
+    "project_id": "onesignal-7c137",
+    "storage_bucket": "onesignal-7c137.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:188524378665:android:8acdbfa9b283a25b62ba38",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "188524378665-5u5q9bpm9nttp10stnd19tctf1cb7rsv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQljQFyffYdHux70ZoFufs67EWOddl7w0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "188524378665-5u5q9bpm9nttp10stnd19tctf1cb7rsv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

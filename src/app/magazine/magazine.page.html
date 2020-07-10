@@ -16,7 +16,31 @@
 <img src="http://localhost/uploads\files\magazine\images\{{magazine.thumbnail}}" height="150px">
 <h3>{{magazine.magazine}}</h3>
 
-<ion-button color="dark" size="large" (click)="addToPanier(magazine)">acheter - <br/> {{magazine.prix}} TDN</ion-button><br/>
+<ion-button color="dark" size="large" (click)="valider(magazine)">acheter - <br/> {{magazine.prix}} TDN</ion-button><FORM name="paiment" method="POST" action="https://preprod.gpgcheckout.com/Paiement_test/Validation_paiement.php" >
+  <input type="hidden" name="NumSite" value="{{NumSite}}">
+  <input type="hidden" name="Password" value="{{Password}}">
+  <input type="hidden" name="orderID" value="{{orderId}}">
+  <input type="hidden" name="Amount" value="{{Amount}}">
+  <input type="hidden" name="Currency" value="{{Devise}}">
+  <input type="hidden" name="Language" value="fr">
+  <input type="hidden" name="EMAIL" value="contact@gpgcheckout.com">
+  <input type="hidden" name="CustLastName" value="nom">
+  <input type="hidden" name="CustFirstName" value="prenom">
+  <input type="hidden" name="CustAddress" value="ariana">
+  <input type="hidden" name="CustZIP" value="2080">
+  <input type="hidden" name="CustCity" value="ariana">
+  <input type="hidden" name="CustCountry" value="tunisie">
+  <input type="hidden" name="CustTel" value="26547852">
+  <input type="hidden" name="PayementType" value="1">
+  <input type="hidden" name="orderProducts" value="{{PanierStorage}}">
+  <input type="hidden" name="signature" value="{{signture}}">
+  <input type="hidden" name="AmountSecond" value="25">
+  <input type="hidden" name="vad" value="345566666">
+  <input type="hidden" name="Terminal" value="002">
+  
+  <input type="submit" name= "Valider" value="Valider" >
+  
+  </FORM><br/>
 
 </div>
 
@@ -28,8 +52,57 @@
     <ion-button expand="outline" color="dark"class="but2" (click)="PreviewPdfFile(magazine.pdf)">version light</ion-button>
 <div class= "abonnement">
   abonnement mensuel <ion-button color="dark" (click)="abonnement(abonne,'6')">acheter - <br/> 25 TDN</ion-button><br/>
+  <FORM name="paiment" method="POST" action="https://preprod.gpgcheckout.com/Paiement_test/Validation_paiement.php" >
+  <input type="hidden" name="NumSite" value="{{NumSite}}">
+  <input type="hidden" name="Password" value="{{Password}}">
+  <input type="hidden" name="orderID" value="{{orderId}}">
+  <input type="hidden" name="Amount" value="{{Amount}}">
+  <input type="hidden" name="Currency" value="{{Devise}}">
+  <input type="hidden" name="Language" value="fr">
+  <input type="hidden" name="EMAIL" value="contact@gpgcheckout.com">
+  <input type="hidden" name="CustLastName" value="nom">
+  <input type="hidden" name="CustFirstName" value="prenom">
+  <input type="hidden" name="CustAddress" value="ariana">
+  <input type="hidden" name="CustZIP" value="2080">
+  <input type="hidden" name="CustCity" value="ariana">
+  <input type="hidden" name="CustCountry" value="tunisie">
+  <input type="hidden" name="CustTel" value="26547852">
+  <input type="hidden" name="PayementType" value="1">
+  <input type="hidden" name="orderProducts" value="{{PanierStorage}}">
+  <input type="hidden" name="signature" value="{{signture}}">
+  <input type="hidden" name="AmountSecond" value="25">
+  <input type="hidden" name="vad" value="345566666">
+  <input type="hidden" name="Terminal" value="002">
+  
+  <input type="submit" name= "Valider" value="Valider" >
+  
+  </FORM>
   abonnement annuel &nbsp; &nbsp;<ion-button color="dark" (click)="abonnement(abonne,'12')">acheter - <br/> 45 TDN</ion-button>
-
+  <FORM name="paiment" method="POST" action="https://preprod.gpgcheckout.com/Paiement_test/Validation_paiement.php" >
+    <input type="hidden" name="NumSite" value="{{NumSite}}">
+    <input type="hidden" name="Password" value="{{Password}}">
+    <input type="hidden" name="orderID" value="{{orderId}}">
+    <input type="hidden" name="Amount" value="{{Amount}}">
+    <input type="hidden" name="Currency" value="{{Devise}}">
+    <input type="hidden" name="Language" value="fr">
+    <input type="hidden" name="EMAIL" value="contact@gpgcheckout.com">
+    <input type="hidden" name="CustLastName" value="nom">
+    <input type="hidden" name="CustFirstName" value="prenom">
+    <input type="hidden" name="CustAddress" value="ariana">
+    <input type="hidden" name="CustZIP" value="2080">
+    <input type="hidden" name="CustCity" value="ariana">
+    <input type="hidden" name="CustCountry" value="tunisie">
+    <input type="hidden" name="CustTel" value="26547852">
+    <input type="hidden" name="PayementType" value="1">
+    <input type="hidden" name="orderProducts" value="{{PanierStorage}}">
+    <input type="hidden" name="signature" value="{{signture}}">
+    <input type="hidden" name="AmountSecond" value="25">
+    <input type="hidden" name="vad" value="345566666">
+    <input type="hidden" name="Terminal" value="002">
+    
+    <input type="submit" name= "Valider" value="Valider" >
+    
+    </FORM>
 </div>
 
 

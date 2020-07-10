@@ -52,14 +52,6 @@ export class Tab1Page {
 
 
 
-      if(this.vu){
-        for(let i = 0 ;i< this.vu.length;i++){
-           if(this.vu[i].categorie == 'Politique' ){ this.Politique +=1;}
-           else if(this.vu[i].categorie == 'People'){ this.People +=1;}
-        }
-      }
-
-      console.log(this.Politique ,this.People)
 
 
       this._ApiService.getcommandes()
@@ -72,11 +64,12 @@ export class Tab1Page {
       )
 }
 
-Politique : number;
-People : number;
+Politique =1;
+People =1;
 
 async addToPanier(magazine : Magazine) : Promise<void>{
-  let added : boolean = false;
+  if(this.datastorage)
+{  let added : boolean = false;
   let purchased : boolean = false;
   //si le panier est vide
   if(this.lstcommandes)
@@ -126,7 +119,13 @@ if(!purchased) { this.storage.get("Panier").then(async (data : Magazine[])=>{
   })}else{ const toast =  await this.toastCtrl.create({
     message: 'vous avez deja cette magazine',
     duration: 1500
-  });toast.present();}
+  });toast.present();
+}}else{
+  const toast =  await this.toastCtrl.create({
+    message: 'Connecter vous',
+    duration: 1500
+  });toast.present();
+  }
 }
 currentCategorie = "all"
 changeCategory(categorie){
@@ -139,25 +138,35 @@ ionViewDidEnter(){
   this.storage.get('vu').then((res)=>{
     this.vu = res;
     console.log(this.vu);  
+    
+    for(let i = 0 ;i< this.vu.length;i++){
+      if(this.vu[i].categorie.nomCategorie == 'Politique' ){ this.Politique +=1;}
+      else if(this.vu[i].categorie.nomCategorie == 'People'){ this.People +=1;}
+   }
+
+   console.log(this.Politique ,this.People)
 
   });
 
   if(this.vu){
-    for(let i = 0 ;i< this.vu.length;i++){
-       if(this.vu[i].categorie == 'Politique' ){ this.Politique +=1;}
-       else if(this.vu[i].categorie == 'People'){ this.People +=1;}
-    }
-    console.log(this.Politique ,this.People)
+    
   }
+
+
   this.storage.get('storage_xxx').then((res)=>{
     this.datastorage= res;
   });
+  
+  
+
+  
  
 }
 
   async valider(magazine)
 {
-  let purchased : boolean = false;
+  if (this.datastorage)
+{  let purchased : boolean = false;
 
   if(this.lstcommandes)
   { for(let i = 0 ;i< this.lstcommandes.length;i++)
@@ -186,7 +195,11 @@ console.log(commande);
   message: 'vous avez deja cette magazine',
   duration: 1500
 });toast.present();}
-
+}else{const toast =  await this.toastCtrl.create({
+  message: 'connecter vous',
+  duration: 1500
+});toast.present();
+}
 }
 
 

@@ -63,4 +63,7 @@ export class ApiService
     commander(commande : any): Observable<any> {
         return this.httpclient.post("http://localhost/api/commandes.json",commande)
     }
+    getabonne(id :any): Observable<any> {
+        return this.httpclient.get("http://localhost/api/abonnes/"+id+".json")
+                                }
 }
