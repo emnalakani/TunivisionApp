@@ -4,8 +4,8 @@
 
  
   <ion-toolbar>
- <ion-buttons slot="start" >
-    <ion-back-button defaultHref="/"></ion-back-button>S'inscrire
+ <ion-buttons slot="end" >
+  <ion-icon name="arrow-forward-outline" color="light" size ="large"></ion-icon>
   </ion-buttons>
 </ion-toolbar>
 <ion-icon class="icon" name="log-in-outline"></ion-icon>
@@ -41,4 +41,12 @@
 
 <ion-button (click)="tryRegister()" [disabled]="disabledButton" > s'inscrire </ion-button>
 <p>vous n'avez pas encore de compte ? <a (click)="openLogin()">Connecter</a></p>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<ion-footer class="ion-no-border">
+
+<img src="assets/images/Tunivisions.png" class="logo" > </ion-footer>
 </ion-content>
