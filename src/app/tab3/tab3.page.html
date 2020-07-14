@@ -20,22 +20,22 @@
 
 
   <ion-list>
-    <ion-item *ngFor="let data of lstvideos">
+    <div *ngFor="let data of lstvideos">
   <ion-card>
-    <ion-button (click)="addPlusTardVideo(data)">&nbsp;&nbsp;
+    <ion-button (click)="addPlusTardVideo(data)" fill="clear">&nbsp;&nbsp;
       <ion-icon name="bookmark-outline" color="Medium" size="small"> </ion-icon>Lire+tard
     </ion-button> 
     <iframe [src]="getEmbedUrl(data)" allowfullscreen>
      </iframe>
     <ion-card-header>
-      <ion-card-subtitle><ion-icon name="heart" color="medium"></ion-icon>{{data.likes_total}} {{data.views_total}} vues</ion-card-subtitle>
+      <ion-card-subtitle>{{data.likes_total}}<ion-icon name="heart" color="medium"></ion-icon>&nbsp;&nbsp;&nbsp; {{data.views_total}} vues</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content >
           {{data.title}}
        
       </ion-card-content>
       <ion-row>
-        <div  (click)="onButtonClick(data.id)"> Commentaires</div> <br><br>
+        <div  (click)="onButtonClick(data.id)"> Commentaires</div> 
         <div *ngIf="buttonClicked && video==data.id" >
           <div *ngFor="let commentaire of lstcommentaires">
             <div *ngIf="commentaire.post ===data.id ">
@@ -57,8 +57,8 @@
           <ion-input  type="text" [(ngModel)]="commentaire"placeholder="Entrez votre commentaire" ></ion-input>
         </ion-col>
         <ion-col size="2" class="send-col">
-          <ion-button shape="full" (click)="send(data.id)">
-            <ion-icon name="paper-plane"></ion-icon>
+          <ion-button shape="clear" (click)="send(data.id)">
+            <ion-icon name="paper-plane" color="primary"></ion-icon>
           </ion-button>
         </ion-col>
         
@@ -66,7 +66,7 @@
         </ion-row>
   </ion-card>
 
-</ion-item>
+</div>
 </ion-list>
 </ion-content>
 

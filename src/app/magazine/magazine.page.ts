@@ -101,12 +101,11 @@ export class MagazinePage implements OnInit {
    async abonnement(abonne,type){
      if(this.datastorage)
   {
-    if(this.datastorage.abonnement == "[]") 
+    if(this.datastorage.abonnement == "[]" || this.datastorage.abonnement== "") 
  {   let typeabonnement ={
       abonnement:[type]
     };
-    if(this.datastorage.abonnement == "[]")
-  {
+   
       this._ApiService.abonnement(typeabonnement,this.datastorage.id)
     .subscribe
    ( async data=>
@@ -119,7 +118,7 @@ export class MagazinePage implements OnInit {
   });toast.present();
   
     })
-  }
+  
   this._ApiService.getabonne(this.datastorage.id)
     .subscribe
     (

@@ -1,74 +1,51 @@
+ion-toolbar{
+    --min-height:20px;
+    --border-width:0 !important; 
+    --border-color: transparent;
+  }
+ion-content{
 
-ion-content {
-    --background: url(/assets/images/background.jpg) no-repeat top center/cover fixed, #fff;
-    position: relative;
-    height: 100%;
-    width: 100%;
+    --background: #f5f6f9;
+
+    
+    
+}
+.card-body{
+    padding-left: 15px;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    
 }
 
-ion-toolbar {
-    --background: transparent;
+h3 {
+    text-align: left; 
+    font-size: 15px;
+ 
 }
-
-.card {
-    margin: 0 auto;
-
-    .header {
-        height: 200px;
-
-        .avatar {
-            width: 160px;
-            height: 160px;
-            position: relative;
-            margin: 0 auto;
-
-            img {
-                display: block;
-                border-radius: 50%;
-                position: absolute;
-                bottom: calc(-1*(80px + 4px));
-                border: 8px solid #DC274C;
-                background-color: #fff;
-            }
-        }
+h4{
+    text-align: left; 
+    font-size: 15px;
+}
+h6{
+    text-align: left;
+    font-size: 15px; 
+}
+.icon{
+    font-size: 150px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+    
     }
+ion-item{
+    --highlight-background: #dc103c;    
 }
-
-.card-body {
-    background-color: #dc274b56;
-    padding: 30px;
-    height: calc(100vh - (200px + 56px));
-    overflow: hidden;
-
-    .user-meta {
-        padding-top: 40px;
-
-        .playername {
-
-            font-size: 26px;
-            font-weight: 600;
-            color: #ffffff;
-        }
-
-        .mail {
-            font-size: 20px;
-            font-weight: 600;
-            color: #ffffff;
-        }
-        .abonnement {
-            font-size: 18px;
-            font-weight: 600;
-            color: #ffffff;
-        }
-        .ranking {
-            font-size: 24px;
-            font-weight: 600;
-            color: #ffffff;
-        }
-        .score {
-            font-size: 24px;
-            font-weight: 600;
-            color: #09b34a;
-        }
-    }
+ion-button{
+    
+    margin-left: auto;
+    margin-right: auto  
+}
+.Confirmer{
+    
+    margin-left: 35%;
+    margin-right: auto  
 }

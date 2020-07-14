@@ -80,7 +80,7 @@ async send(id:any){
 {let patched = {
   contenu : this.commentaire,
  post : id,
- abonne : this.datastorage.id
+ abonne : this.datastorage.id.toString()
   
 }
 console.log(patched);

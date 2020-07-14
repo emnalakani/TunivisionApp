@@ -37,7 +37,7 @@
 <a [routerLink]="['/', 'magazine', lstmagazines[0].id]"><ion-icon name="book-outline"></ion-icon> Consulter</a><br>
 </div>
 <br><ion-button class="app-mag-button" color="primary" (click)="valider(lstmagazines[0])">Achetez</ion-button>
-<FORM name="paiment" method="POST" action="https://preprod.gpgcheckout.com/Paiement_test/Validation_paiement.php" >
+<!-- <FORM name="paiment" method="POST" action="https://preprod.gpgcheckout.com/Paiement_test/Validation_paiement.php" >
   <input type="hidden" name="NumSite" value="{{NumSite}}">
   <input type="hidden" name="Password" value="{{Password}}">
   <input type="hidden" name="orderID" value="{{orderId}}">
@@ -61,7 +61,7 @@
   
   <input type="submit" name= "Valider" value="Valider" >
   
-  </FORM>
+  </FORM> -->
 
   </div>
   </div>
@@ -93,7 +93,7 @@
   <div class="if" *ngIf="data.categorie.nomCategorie === currentCategorie || currentCategorie ==='all' ">
     <div class="if" *ngIf="data.typePost.nomtype === 'Article'" >
 
-<div *ngIf="data.categorie.nomCategorie != 'People' ">
+<div *ngIf="data.categorie.nomCategorie == 'People' ">
 <ion-row  class="ion-align-items-center" class="ion-justify-content-around" class="ion-align-items-center	">
 <ion-col fixed="true" class="ion-margin-vertical	"	 >
 <div class="container">

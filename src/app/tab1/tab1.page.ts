@@ -138,11 +138,11 @@ ionViewDidEnter(){
   this.storage.get('vu').then((res)=>{
     this.vu = res;
     console.log(this.vu);  
-    
-    for(let i = 0 ;i< this.vu.length;i++){
+    if(this.vu)
+    {for(let i = 0 ;i< this.vu.length;i++){
       if(this.vu[i].categorie.nomCategorie == 'Politique' ){ this.Politique +=1;}
       else if(this.vu[i].categorie.nomCategorie == 'People'){ this.People +=1;}
-   }
+   }}
 
    console.log(this.Politique ,this.People)
 

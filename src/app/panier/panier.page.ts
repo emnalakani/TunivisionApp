@@ -78,5 +78,7 @@ export class PanierPage implements OnInit {
     })}
   }
   this.storage.remove("Panier");
+  location.reload();
+
 }
 }

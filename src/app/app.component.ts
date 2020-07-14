@@ -86,7 +86,7 @@ export class AppComponent implements OnInit  {
     this.storage.clear();
     this.navCtrl.navigateRoot(['/login']);
     const toast = await this.toastCtrl.create({
-      message: 'Logout successufuly',
+      message: 'Déconnexion réussie',
       duration: 1500
     });
     toast.present();

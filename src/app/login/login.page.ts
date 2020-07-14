@@ -54,18 +54,18 @@ ionViewDidEnter(){
         if(res.success==true){
           loader.dismiss();
           this.disabledButton = false;
-          this.presentToast('Login successfuly');
+          this.presentToast('Connection ');
           this.storage.set('storage_xxx',res.result);
           this.navCtrl.navigateRoot(['tabs/tab1']);
         }else{
           loader.dismiss();
           this.disabledButton = false;
-          this.presentToast('wrong email or password');
+          this.presentToast('Adresse email ou mot de passe invalid');
         }
         },(err)=>{
           loader.dismiss();
           this.disabledButton = false;
-          this.presentToast('Timeout')
+          this.presentToast('Adresse email ou mot de passe invalid')
       });
     });
   }}

@@ -37,7 +37,7 @@ codeparainnage = Math.random().toString(36).substring(2, 15) + Math.random().toS
     if (this.username==""){
 this.presentToast("Entrez votre nom");
     } else if (this.mail == ""){
-      this.presentToast('Entrez votre adresse mail');
+      this.presentToast('Entrez votre adresse email');
 
     }else if (this.naissance == ""){
       this.presentToast('Entrez votre date de naissance');

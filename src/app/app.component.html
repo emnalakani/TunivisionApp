@@ -30,13 +30,24 @@
        </ion-item>
      </ion-list>
 
-        <ion-list >
-          <ion-item lines="none" (click)="prosesLogout()">
-            <ion-icon name="log-out-outline" ></ion-icon>  &nbsp;&nbsp;  &nbsp;&nbsp; 
-           <ion-label>Déconnecter</ion-label>
-           </ion-item>
-           
-        </ion-list>
+     <div *ngIf="datastorage; else elseBlock">
+      <ion-list >
+        <ion-item lines="none" (click)="prosesLogout()">
+          <ion-icon name="log-out-outline" ></ion-icon>  &nbsp;&nbsp;  &nbsp;&nbsp; 
+         <ion-label>Déconnecter</ion-label>
+         </ion-item>
+         
+      </ion-list>
+    </div>
+    <ng-template #elseBlock>
+      <ion-list >
+      <ion-item lines="none" routerLink="login">
+        <ion-icon name="log-out-outline" ></ion-icon>  &nbsp;&nbsp;  &nbsp;&nbsp; 
+       <ion-label>Connecter</ion-label>
+       </ion-item>
+       
+    </ion-list>
+  </ng-template>
     
       
       </ion-content>

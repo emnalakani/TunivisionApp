@@ -61,6 +61,8 @@ sliderConfig = {
 }
 
   async addToPanier(magazine : Magazine) : Promise<void>{
+
+    if(this.datastorage){
   let added : boolean = false;
   let purchased : boolean = false;
   //si le panier est vide
@@ -112,6 +114,10 @@ if(!purchased) { this.storage.get("Panier").then(async (data : Magazine[])=>{
     message: 'vous avez deja cette magazine',
     duration: 1500
   });toast.present();}
+}else{ const toast =  await this.toastCtrl.create({
+  message: 'Connecter vous',
+  duration: 1500
+});toast.present();}
 }
 
 ionViewDidEnter(){

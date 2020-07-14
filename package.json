@@ -88,6 +88,9 @@
       "cordova-plugin-inappbrowser": {},
       "cordova-plugin-x-socialsharing": {
         "ANDROID_SUPPORT_V4_VERSION": "24.1.1+"
+      },
+      "phonegap-plugin-push": {
+        "SENDER_ID": "188524378665"
       }
     },
     "platforms": [

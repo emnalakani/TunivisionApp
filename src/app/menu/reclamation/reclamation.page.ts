@@ -33,7 +33,7 @@ lstmessages :any;
   obj :any;
   async send(){
     this.patchmessage =[this.message];
-    this.reponse =["test"];
+    this.reponse =["Votre demande sera prise en compte et nous vous répondrons dans les meilleurs délais."];
 
   let patched = {
     abonne : this.abonne,

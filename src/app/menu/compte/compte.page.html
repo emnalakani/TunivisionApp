@@ -1,14 +1,12 @@
 
-<ion-header translucent no-border>
-  <ion-toolbar>
-   
-    
-      <ion-buttons slot="start">
-        <ion-back-button defaultHref="tabs/tab1"></ion-back-button>
-      </ion-buttons>
-      <ion-title>      
-      Mon compte
-      </ion-title>
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary" >
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/tab2"></ion-back-button>
+    </ion-buttons>
+    <ion-title>      
+    Mon compte
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -17,25 +15,26 @@
 <div class="card">
   <div class="header">
     <div class="avatar">
-      <img src="/assets/images/profile.jpg" alt="">
+      <ion-icon name="person-circle-outline"  class="icon" color="primary"></ion-icon>
+
     </div>
   </div>
 </div>
 <div class="card-body">
   <div class="user-meta ion-text-center">
     <div *ngIf="datastorage">
-    <h3 class="playername">{{datastorage.username}}</h3>
+    <h3 class="playername">Nom d'utilisation : {{datastorage.username}}</h3>
   
-    <h6 class="ranking">Vos poins cadeaux: <ion-chip class="score">
-      <ion-label>{{score}}</ion-label>
-      </ion-chip>
-    </h6>
-    <h4 class="mail">{{datastorage.mail}} </h4>
- <div *ngIf="datastorage.abonnemnet !='[]'"> <h4 class="abonnement"> Vos avez une abonnement de {{datastorage.abonnement}} editions</h4></div>  
+    <h4 class="mail">Adresse email : {{datastorage.mail}} </h4>
+ <div *ngIf="datastorage.abonnemnet !='[]'"> <h4 class="abonnement"> Il vous reste {{datastorage.abonnement}} editions</h4></div>  
   </div>
-  
+  <div *ngIf="score"> 
+    <h6 class="ranking">Vos points cadeaux: <ion-chip class="score">
+     <ion-label>{{score}}</ion-label>
+      </ion-chip>
+    </h6></div>   
   <ion-col>
-    <div *ngIf="datastorage"><ion-button fill="clear" (click)="onButtonClick()">changer vos informations</ion-button></div>
+    <div *ngIf="datastorage"><ion-button  (click)="onButtonClick()"> Modifier </ion-button></div>
  
    </ion-col>
  
@@ -64,11 +63,11 @@
     </ion-item> 
      <ion-item >
       <ion-label position="floating"><ion-icon name="lock-open-outline"></ion-icon>&nbsp;&nbsp;Mot de passe </ion-label>
-      <ion-input type="password " [(ngModel)]="password" minlength="6"  maxlength="12" ></ion-input>
+      <ion-input type="password" [(ngModel)]="password" minlength="6"  maxlength="12" ></ion-input>
      </ion-item>  
      <ion-item >
      <ion-label position="floating"><ion-icon name="lock-closed-outline"></ion-icon>&nbsp;&nbsp; Confirmer le mot de passe</ion-label>
-     <ion-input type="password " [(ngModel)]="confirm_pass" ></ion-input>
+     <ion-input type="password" [(ngModel)]="confirm_pass" ></ion-input>
     </ion-item> 
     
     </ion-list>
@@ -76,6 +75,6 @@
     <br/>
     
     
-    <ion-button (click)="reRegister()" [disabled]="disabledButton" > Confirmer </ion-button>
+    <ion-button class="Confirmer" (click)="reRegister()" [disabled]="disabledButton" > Confirmer </ion-button>
   </div>
 </ion-content>  

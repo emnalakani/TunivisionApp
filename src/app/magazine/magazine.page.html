@@ -16,7 +16,8 @@
 <img src="http://localhost/uploads\files\magazine\images\{{magazine.thumbnail}}" height="150px">
 <h3>{{magazine.magazine}}</h3>
 
-<ion-button color="dark" size="large" (click)="valider(magazine)">acheter - <br/> {{magazine.prix}} TDN</ion-button><FORM name="paiment" method="POST" action="https://preprod.gpgcheckout.com/Paiement_test/Validation_paiement.php" >
+<ion-button color="dark" size="large" (click)="valider(magazine)">acheter - <br/> {{magazine.prix}} TDN</ion-button>
+<!-- <FORM name="paiment" method="POST" action="https://preprod.gpgcheckout.com/Paiement_test/Validation_paiement.php" >
   <input type="hidden" name="NumSite" value="{{NumSite}}">
   <input type="hidden" name="Password" value="{{Password}}">
   <input type="hidden" name="orderID" value="{{orderId}}">
@@ -40,7 +41,8 @@
   
   <input type="submit" name= "Valider" value="Valider" >
   
-  </FORM><br/>
+  </FORM> -->
+  <br/>
 
 </div>
 
@@ -52,7 +54,7 @@
     <ion-button expand="outline" color="dark"class="but2" (click)="PreviewPdfFile(magazine.pdf)">version light</ion-button>
 <div class= "abonnement">
   abonnement mensuel <ion-button color="dark" (click)="abonnement(abonne,'6')">acheter - <br/> 25 TDN</ion-button><br/>
-  <FORM name="paiment" method="POST" action="https://preprod.gpgcheckout.com/Paiement_test/Validation_paiement.php" >
+  <!-- <FORM name="paiment" method="POST" action="https://preprod.gpgcheckout.com/Paiement_test/Validation_paiement.php" >
   <input type="hidden" name="NumSite" value="{{NumSite}}">
   <input type="hidden" name="Password" value="{{Password}}">
   <input type="hidden" name="orderID" value="{{orderId}}">
@@ -76,9 +78,9 @@
   
   <input type="submit" name= "Valider" value="Valider" >
   
-  </FORM>
+  </FORM> -->
   abonnement annuel &nbsp; &nbsp;<ion-button color="dark" (click)="abonnement(abonne,'12')">acheter - <br/> 45 TDN</ion-button>
-  <FORM name="paiment" method="POST" action="https://preprod.gpgcheckout.com/Paiement_test/Validation_paiement.php" >
+  <!-- <FORM name="paiment" method="POST" action="https://preprod.gpgcheckout.com/Paiement_test/Validation_paiement.php" >
     <input type="hidden" name="NumSite" value="{{NumSite}}">
     <input type="hidden" name="Password" value="{{Password}}">
     <input type="hidden" name="orderID" value="{{orderId}}">
@@ -102,7 +104,7 @@
     
     <input type="submit" name= "Valider" value="Valider" >
     
-    </FORM>
+    </FORM> -->
 </div>
 
 

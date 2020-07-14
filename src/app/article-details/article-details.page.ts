@@ -171,11 +171,23 @@ sShare(article : any){
     })
   }
   listvu : Posts[] ;
+  listjaime : Posts[] ;
+
   ionViewDidEnter(){
     
     this.storage.get('vu').then((res)=>{
       console.log(res);
       this.listvu=res;
+    });
+
+    this.storage.get('jaime').then((res)=>{
+      console.log(res);
+      this.listjaime=res; if(this.listjaime){
+      for(let i = 0 ;i< this.listjaime.length;i++){
+        if(this.id == this.listjaime[i].id){
+    this.djjaime = true;
+        }
+      }}
     });
     this.storage.get('score').then((res)=>{
       console.log(res);
@@ -187,6 +199,9 @@ sShare(article : any){
      console.log(this.abonne);
     });
     this.post=("/api/posts/"+this.id);
+
+
+   
   
   }
  test : number;
@@ -266,6 +281,42 @@ this.seen = true;
     })
   }
 
+  djjaime :Boolean = false;
+
+  jaime(post : Posts) : void{
+    let added : boolean = false;
+    //si list vu est vide
+    this.storage.get("jaime").then(async (data : Posts[])=>{
+      console.log(data); 
+     if(data === null || data.length === 0){
+       data = [];
+       data.push(post)
+      
+     }
+     else{
+       //si list vu n'est pas vide
+       for(let i = 0 ;i< data.length;i++){
+         const element : Posts =data[i];
+         if(post.id ===element.id){
+           //list vu n'est pas vide et contient l'article
+          
+           
+           added = true;
+         }
+       }
+       if(!added){
+         //list vu n'est pas vide et ne contient pas l'article
+         data.push(post)
+         
+       }
+     }
+     this.storage.set("jaime",data)
+     
+  
+     
+    })
+    location.reload();
+  }
 
 handleScroll(ev){
   console.log(ev);

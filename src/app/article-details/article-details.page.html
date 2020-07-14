@@ -29,13 +29,15 @@
     Publié à {{post.updateAt}}</p>
     
     <ion-buttons class="center">
+      
     <ion-button >
         <ion-icon name="heart" color="Medium" size="small"> </ion-icon>{{post.reactions}} 
       </ion-button>
+    
       <ion-button (click)="sShare(post)">&nbsp; &nbsp;
         <ion-icon name="share-social" color="Medium" size="small"> </ion-icon>
    </ion-button>
-      <ion-button (click)="addPlusTardArticle(post)">&nbsp;&nbsp;
+      <ion-button (click)="addPlusTardArticle(post)" >&nbsp;&nbsp;
         <ion-icon name="bookmark-outline" color="Medium" size="small"> </ion-icon>Lire+tard
       </ion-button>
    </ion-buttons>
@@ -44,12 +46,19 @@
  </div>
  <ion-row>
   <ion-col>
-   <ion-button fill="clear" (click)="reaction(post.reactions,post.id)">
-  <ion-icon name="heart-outline" color="medium"></ion-icon> j'aime
+<div *ngIf="!djjaime">
+   <ion-button fill="clear" color="dark" (click)="reaction(post.reactions,post.id)"(click)="jaime(post)">
+  <ion-icon name="heart-outline" color="medium"></ion-icon> &nbsp; j'aime
 </ion-button>
+</div>
+<div *ngIf="djjaime">
+  <ion-button fill="clear" color="dark" (click)="Rereaction(post.reactions,post.id)" (click)="dislike(post)">
+ <ion-icon name="heart" color="primary"></ion-icon> &nbsp; j'aime
+</ion-button>
+</div>
   </ion-col>
   <ion-col>
-   <ion-button fill="clear" (click)="onButtonClick()"><ion-icon name="chatbox-outline" color="medium"></ion-icon>{{nbrcommentaires}} Commentaires</ion-button>
+   <ion-button fill="clear" (click)="onButtonClick()" color="dark"><ion-icon name="chatbox-outline" color="medium"></ion-icon> &nbsp; {{nbrcommentaires}} Commentaires</ion-button>
 
   </ion-col>
   
