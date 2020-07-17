@@ -83,7 +83,7 @@ export class AppComponent implements OnInit  {
 
 
   async prosesLogout(){
-    this.storage.clear();
+    this.storage.remove('storage_xxx');
     this.navCtrl.navigateRoot(['/login']);
     const toast = await this.toastCtrl.create({
       message: 'Déconnexion réussie',

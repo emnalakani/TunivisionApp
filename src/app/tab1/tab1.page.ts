@@ -203,5 +203,8 @@ console.log(commande);
 }
 
 
+vide(){
+  this.storage.clear();
 
+}
 }

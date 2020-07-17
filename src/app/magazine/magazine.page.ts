@@ -101,7 +101,7 @@ export class MagazinePage implements OnInit {
    async abonnement(abonne,type){
      if(this.datastorage)
   {
-    if(this.datastorage.abonnement == "[]" || this.datastorage.abonnement== "") 
+    if(this.datastorage.abonnement == "[]" || this.datastorage.abonnement== null) 
  {   let typeabonnement ={
       abonnement:[type]
     };

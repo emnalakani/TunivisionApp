@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import {Storage} from '@ionic/storage';
+import { ToastController, LoadingController, AlertController, NavController} from '@ionic/angular'
 
 @Component({
   selector: 'app-reclamation',
@@ -10,6 +11,7 @@ import {Storage} from '@ionic/storage';
 export class ReclamationPage implements OnInit {
 
   constructor(private _ApiService: ApiService,
+    private toastCtrl :ToastController,
     private storage: Storage,) { }
 datastorage : any;
 message ="";
@@ -32,7 +34,7 @@ lstmessages :any;
   }
   obj :any;
   async send(){
-    this.patchmessage =[this.message];
+if(this.datastorage) {   this.patchmessage =[this.message];
     this.reponse =["Votre demande sera prise en compte et nous vous répondrons dans les meilleurs délais."];
 
   let patched = {
@@ -49,7 +51,12 @@ lstmessages :any;
       console.log(this.obj);
 
   })
-  this.message="";
+  this.message="";}else{
+    const toast =  await this.toastCtrl.create({
+      message: 'connecter vous',
+      duration: 1500
+    });toast.present();
+  }
   }
 
   ionViewDidEnter(){

@@ -1,0 +1,28 @@
+
+  
+  .chat {
+    height: 87%;
+  }
+  
+ 
+
+  
+  .name, .message {
+    background: steelblue;
+    float: left;
+    padding: 20px 10px;
+    max-width: 220px;
+    border-radius: 50px;
+  }
+  .message {background: silver}
+  
+  
+  
+  .me .name, .me .message {
+    float: right}
+  
+  
+
+  
+
+  

@@ -11,7 +11,29 @@
 
 <ion-content>
    <ion-grid>
-    <ion-row>
+   
+  </ion-grid>
+
+
+   
+  
+
+
+
+
+  <div class="chat">
+    <div *ngFor="let message of lstmessages">
+      <div *ngIf="message.abonne === abonne">
+     
+    <div class="damn me">
+ <div class="message">{{message.messages}}</div>
+       </div>
+       <div class="message">{{message.reponse}}</div>
+
+</div>
+</div>
+</div>
+ <ion-row>
       <ion-col size="10" class="input-col">
         <ion-input  type="text" [(ngModel)]="message"placeholder="Entrez votre message"></ion-input>
       </ion-col>
@@ -21,13 +43,4 @@
         </ion-button>
       </ion-col>
     </ion-row>
-  </ion-grid>
-
-  <div *ngFor="let message of lstmessages">
-    <div *ngIf="message.abonne === abonne">
-        <h1>{{message.messages}}</h1>
-
-       <h1>{{message.reponse}}</h1> 
-    </div>
-  </div>
 </ion-content>
